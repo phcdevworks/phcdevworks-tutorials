@@ -1,0 +1,9 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tutorial category name:</strong>
+  <%= @tutorial_category.tutorial_category_name %>
+</p>
+
+<%= link_to 'Edit', edit_tutorial_category_path(@tutorial_category) %> |
+<%= link_to 'Back', tutorial_categories_path %>

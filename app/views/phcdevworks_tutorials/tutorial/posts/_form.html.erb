@@ -1,0 +1,32 @@
+<%= form_with(model: tutorial_post, local: true) do |form| %>
+
+  <!-- Form Input Fields -->
+  <div class="form-group field_with_errors">
+    <%= form.label :tutorial_post_step, "Tutorial Step" %>
+		<%= form.select( :tutorial_post_step, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"]], {}, {class: "form-control"}) %>
+  </div>
+  
+  <div class="form-group field_with_errors">
+    <%= form.label :tutorial_post_title, "Tutorial Title" %>
+    <%= form.text_field :tutorial_post_title, placeholder: "Tutorial Title", class: "form-control" %>
+  </div>
+  
+  <!-- Form Input Fields -->
+  <div class="form-group field_with_errors">
+    <%= form.label :tutorial_post_text, "Tutorial Text" %>
+    <%= form.text_area :tutorial_post_text, placeholder: "Tutorial Text", class: "form-control" %>
+  </div>
+
+  <div class="form-group field_with_errors">
+    <label>Select a Category</label>
+    <%= form.collection_select :category_id, PhcdevworksTutorials::Tutorial::Category.order(:tutorial_category_name),:id, :tutorial_category_name, {}, {class: "form-control"} %>
+  </div>
+  <!-- Form Input Fields -->
+  
+  <!-- Form Submition Button -->
+  <div class="actions">
+    <%= form.submit class: "btn btn-primary" %>
+  </div>
+  <!-- For Submition Button -->
+
+<% end %>
