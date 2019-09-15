@@ -30,6 +30,8 @@ module PhcdevworksTutorials
     # POST /tutorial/categories
     def create
       @tutorial_category = Tutorial::Category.new(tutorial_category_params)
+      @tutorial_category.user_id = current_user.id
+      @tutorial_category.org_id = current_user.org_id
       respond_to do |format|
         if @tutorial_category.save
           format.html { redirect_to tutorial_categories_path, :flash => { :success => 'Tutorial has been Added.' }}

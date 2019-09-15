@@ -30,6 +30,8 @@ module PhcdevworksTutorials
     # POST /tutorial/posts
     def create
       @tutorial_post = Tutorial::Post.new(tutorial_post_params)
+      @tutorial_post.user_id = current_user.id
+      @tutorial_post.org_id = current_user.org_id
       respond_to do |format|
         if @tutorial_post.save
           format.html { redirect_to tutorial_posts_path, :flash => { :success => 'Tutorial has been Added.' }}

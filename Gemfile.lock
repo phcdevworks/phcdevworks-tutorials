@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    phcdevworks_tutorials (0.2.0)
+    phcdevworks_tutorials (0.4.0)
       aws-sdk-s3 (~> 1.46)
       friendly_id (~> 5.2)
       google-cloud-storage (~> 1.21)
@@ -9,7 +9,7 @@ PATH
       jbuilder (~> 2.9)
       mini_magick (~> 4.9)
       paper_trail (~> 10.3)
-      phcdevworks_accounts (~> 1.0.1)
+      phcdevworks_accounts (~> 1.1.0)
       phcdevworks_active_menus (~> 1.0)
       phcdevworks_notifications (~> 1.0)
       phcdevworks_titleseo (~> 1.0)
@@ -191,7 +191,7 @@ GEM
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
-    phcdevworks_accounts (1.0.1)
+    phcdevworks_accounts (1.1.0)
       activemerchant (~> 1.97)
       aws-sdk-s3 (~> 1.46)
       devise (~> 4.7)
