@@ -16,6 +16,7 @@ module PhcdevworksTutorials
 
     # GET /tutorial/posts/1
     def show
+      @tutorial_post = Tutorial::Post.friendly.find(params[:id])
     end
 
     # GET /tutorial/posts/new
@@ -69,7 +70,7 @@ module PhcdevworksTutorials
 
     # Common Callbacks
     def set_tutorial_post
-      @tutorial_post = Tutorial::Post.find(params[:id])
+      @tutorial_post = Tutorial::Post.friendly.find(params[:id])
     end
 
     # Whitelist
