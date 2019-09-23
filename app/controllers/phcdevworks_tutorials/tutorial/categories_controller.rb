@@ -75,7 +75,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def tutorial_category_params
-      params.require(:tutorial_category).permit(:tutorial_category_name)
+      params.require(:tutorial_category).permit(:tutorial_category_name, :slug, :user_id, :org_id)
     end
 
   end
