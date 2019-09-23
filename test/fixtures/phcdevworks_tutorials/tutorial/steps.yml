@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tutorial_step_number: 1
+  tutorial_step_body: MyText
+
+two:
+  tutorial_step_number: 1
+  tutorial_step_body: MyText

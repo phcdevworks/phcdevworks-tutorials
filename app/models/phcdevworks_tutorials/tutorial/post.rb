@@ -6,12 +6,10 @@ module PhcdevworksTutorials
 
     # Relationships
     belongs_to :category, class_name: 'PhcdevworksTutorials::Tutorial::Category'
+    has_many :steps, class_name: "PhcdevworksTutorials::Tutorial::Step"
 
     # Form Fields Validation
     validates :tutorial_post_title,
-      presence: true
-
-    validates :tutorial_post_text,
       presence: true
 
     # Clean URL Define

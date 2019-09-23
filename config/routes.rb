@@ -2,8 +2,10 @@ PhcdevworksTutorials::Engine.routes.draw do
 
   # Tutorial Routs
   namespace :tutorial do
-    resources :posts, class_name: 'PhcdevworksTutorials::Tutorial::Post' 
-    resources :categories, class_name: 'PhcdevworksTutorials::Tutorial::Category'
+    resources :posts, class_name: "PhcdevworksTutorials::Tutorial::Post" do
+      resources :steps, class_name: "PhcdevworksTutorials::Tutorial::Step"
+    end
+    resources :categories, class_name: "PhcdevworksTutorials::Tutorial::Category"
   end
 
   # Frontend Routes
@@ -14,12 +16,12 @@ PhcdevworksTutorials::Engine.routes.draw do
   # API Routes
   namespace :api, :path => "", :constraints => {:subdomain => "tutorial_api"} do
     namespace :v1 do
-      resources :posts, defaults: {format: 'json'}
-      resources :categories, defaults: {format: 'json'}
+      resources :posts, defaults: {format: "json"}
+      resources :categories, defaults: {format: "json"}
     end
   end
 
   # Mount Routes
-  mount PhcdevworksAccounts::Engine, :at => '/'
+  mount PhcdevworksAccounts::Engine, :at => "/"
 
 end
