@@ -2,13 +2,13 @@ require_dependency "phcdevworks_tutorials/application_controller"
 
 module PhcdevworksTutorials
   class Blog::TutorialsController < ApplicationController
-  
+
     # Layout
     layout 'phcdevworks_tutorials/frontend'
 
     # INDEX
     def index
-     @phcdevworks_tutorials_index = Tutorial::Post.where(org_id: current_user.org_id)
+      @phcdevworks_tutorials_index = Tutorial::Post.where(tutorial_post_status: "published")
     end
 
     # SHOW
