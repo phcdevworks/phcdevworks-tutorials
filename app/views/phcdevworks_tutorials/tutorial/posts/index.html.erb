@@ -36,9 +36,7 @@
 
         <thead>
           <tr>
-            <th>Tutorial Step</th>
             <th>Tutorial Title</th>
-            <th>Tutorial Text</th>
             <th>Tutorial Category</th>
             <th></th>
           </tr>
@@ -47,15 +45,13 @@
         <tbody>
           <% @tutorial_posts.each do |tutorial_post| %>
             <tr>
-              <td><%= tutorial_post.tutorial_post_step %></td>
               <td><%= tutorial_post.tutorial_post_title %></td>
-              <td><%= tutorial_post.tutorial_post_text %></td>
               <td><%= tutorial_post.category.tutorial_category_name %></td>
               <td>
                 <div class="btn-group d-flex" role="group">
-                  <%= link_to 'Details', tutorial_post, class: "btn btn-purple btn-xs" %>
-                  <%= link_to 'Update', edit_tutorial_post_path(tutorial_post), class: "btn btn-primary btn-xs" %>
-                  <%= link_to 'Remove', tutorial_post, method: :delete, data: { confirm: 'Are you sure? This action cannot be reversed.' }, class: "btn btn-danger btn-xs" %>
+                  <%= link_to "Details", tutorial_post, class: "btn btn-purple btn-xs" %>
+                  <%= link_to "Update", edit_tutorial_post_path(tutorial_post), class: "btn btn-primary btn-xs" %>
+                  <%= link_to "Remove", tutorial_post, method: :delete, data: { confirm: "Are you sure? This action cannot be reversed." }, class: "btn btn-danger btn-xs" %>
                 </div>
               </td>
             </tr>

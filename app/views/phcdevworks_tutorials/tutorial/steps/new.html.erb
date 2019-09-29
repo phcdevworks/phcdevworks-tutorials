@@ -2,7 +2,7 @@
 <% phc_title "Tutorial Post Manager" %>
 <% phc_title_tagline "Add a New Step" %>
 <% phc_breadcrumb_one yield(:phc_title_tagline) %>
-<% phc_breadcrumb_two link_to "Tutorial Step Index", phcdevworks_tutorials.tutorial_categories_path %>
+<% phc_breadcrumb_two link_to "Tutorial Step Index", phcdevworks_tutorials.tutorial_post_steps_path %>
 <!-- Title System -->
 
 <!-- Page Bradcrumbs -->
@@ -30,9 +30,9 @@
 	<!-- Panel Heading -->
 	<!-- Panel Body -->
 	<div class="panel-body">
-		<!-- Form for New Tutorial Post  -->
-        <%= render 'form', tutorial_step: @tutorial_step %>
-		<!-- Form for New Script Snippet  -->
+		<!-- Form to Edit Member Address -->
+		<%= render "form", { form_url: tutorial_post_steps_path } %>
+		<!-- Form to Edit Member Address -->
 	</div>
 	<!-- Panel Body -->
 </div>

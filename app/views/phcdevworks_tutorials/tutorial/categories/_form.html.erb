@@ -1,9 +1,13 @@
 <%= form_with(model: tutorial_category, local: true) do |form| %>
 
+	<!-- PHCNotifi Render Validation -->
+	<%= render "phcdevworks_notifications/bootstrap/validations", :object => @tutorial_category %>
+	<!-- PHCNotifi Render Validation -->
+
   <!-- Form Input Fields -->
   <div class="form-group field_with_errors">
-    <%= form.label :tutorial_category_name, 'Tutorial Category' %>
-    <%= form.text_field :tutorial_category_name, placeholder: 'Category Name', class: 'form-control' %>
+    <%= form.label :tutorial_category_name, "Tutorial Category" %>
+    <%= form.text_field :tutorial_category_name, placeholder: "Category Name", class: "form-control" %>
   </div>
   <!-- Form Input Fields -->
 

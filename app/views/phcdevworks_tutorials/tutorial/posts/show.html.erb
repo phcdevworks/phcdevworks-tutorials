@@ -1,19 +1,4 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tutorial post step:</strong>
-  <%= @tutorial_post.tutorial_post_step %>
-</p>
-
-<p>
-  <strong>Tutorial post text:</strong>
-  <%= @tutorial_post.tutorial_post_text %>
-</p>
-
-<p>
-  <strong>Category:</strong>
-  <%= @tutorial_post.category_id %>
-</p>
-
 <%= link_to 'Edit', edit_tutorial_post_path(@tutorial_post) %> |
 <%= link_to 'Back', tutorial_posts_path %>

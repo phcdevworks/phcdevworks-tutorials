@@ -1,27 +1,25 @@
-<%= form_with(model: tutorial_step, local: true) do |form| %>
-  <% if tutorial_step.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tutorial_step.errors.count, "error") %> prohibited this tutorial_step from being saved:</h2>
+<%= form_with(model: [ @tutorial_post, @tutorial_step], url: form_url, local: true) do |form| %>
 
-      <ul>
-        <% tutorial_step.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
-    </div>
-  <% end %>
+	<!-- PHCNotifi Render Validation -->
+	<%= render "phcdevworks_notifications/bootstrap/validations", :object => @tutorial_step %>
+	<!-- PHCNotifi Render Validation -->
 
-  <div class="field">
-    <%= form.label :tutorial_step_number %>
-    <%= form.number_field :tutorial_step_number %>
+  <!-- Form Input Fields -->
+  <div class="form-group field_with_errors">
+    <%= form.label :tutorial_step_number, "Tutorial Step" %>
+		<%= form.select( :tutorial_step_number, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"]], {}, {class: "form-control"}) %>
   </div>
 
   <div class="field">
     <%= form.label :tutorial_step_body %>
     <%= form.text_area :tutorial_step_body %>
   </div>
-
+  <!-- Form Input Fields -->
+  
+  <!-- Form Submition Button -->
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit class: "btn btn-primary" %>
   </div>
+  <!-- For Submition Button -->
+
 <% end %>

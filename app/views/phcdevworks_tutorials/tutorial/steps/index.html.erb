@@ -2,7 +2,7 @@
 <% phc_title "Tutorial Post Manager" %>
 <% phc_title_tagline "Tutorial Index" %>
 <% phc_breadcrumb_one yield(:phc_title_tagline) %>
-<% phc_breadcrumb_two link_to "Tutorial Index", phcdevworks_tutorials.tutorial_posts_path %>
+<% phc_breadcrumb_two link_to "Tutorial Index", phcdevworks_tutorials.tutorial_post_steps_path %>
 <!-- Title System -->
 
 <!-- Page Bradcrumbs -->
@@ -55,9 +55,9 @@
         </tbody>
 
       </table>
-      <%= link_to phcdevworks_tutorials.new_tutorial_post_path, class: "btn btn-primary btn-sm" do %>
+      <%= link_to phcdevworks_tutorials.new_tutorial_post_step_path, class: "btn btn-primary btn-sm" do %>
         <i class="fas fa-plus-circle"></i>
-        Add a New Tutorial
+        Add a New Step for Tutorial
       <% end %>
     </div>
     <!-- Table - Snippet Index -->

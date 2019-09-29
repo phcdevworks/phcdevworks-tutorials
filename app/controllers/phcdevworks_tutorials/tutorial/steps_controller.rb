@@ -10,62 +10,66 @@ module PhcdevworksTutorials
     before_action :set_tutorial_step, only: [:show, :edit, :update, :destroy]
 
     # GET /tutorial/steps
+    # GET /tutorial/steps.json
     def index
-      @steps = tutorial_post.steps.all
+      @tutorial_steps = tutorial_post.steps.all
     end
 
     # GET /tutorial/steps/1
+    # GET /tutorial/steps/1.json
     def show
-      @steps = tutorial_post.steps.find(params[:id])
+      @tutorial_step = tutorial_post.steps.find(params[:id])
     end
 
     # GET /tutorial/steps/new
     def new
-      @steps = tutorial_post.steps.build
+      @tutorial_step = tutorial_post.steps.build
     end
 
     # GET /tutorial/steps/1/edit
     def edit
-      @tutorial_post = Tutorial::Post.friendly.find(params[:post_id])
+      @tutorial_step = Tutorial::Post.friendly.find(params[:post_id])
     end
 
     # POST /tutorial/steps
+    # POST /tutorial/steps.json
     def create
-      @steps = tutorial_post.steps.create(steps_params)
-      @steps.user_id = current_user.id
-      @steps.org_id = current_user.org_id
+      @tutorial_step = tutorial_post.steps.create(tutorial_step_params)
+      @tutorial_step.user_id = current_user.id
+      @tutorial_step.org_id = current_user.org_id
       respond_to do |format|
-        if @steps.save
-          format.html { redirect_to stepss_path, :flash => { :success => 'Tutorial has been Added.' }}
-          format.json { render :show, status: :created, location: @steps }
+        if @tutorial_step.save
+          format.html { redirect_to tutorial_post_steps_path, notice: 'Step was successfully created.' }
+          format.json { render :show, status: :created, location: @tutorial_step }
         else
           format.html { render :new }
-          format.json { render json: @steps.errors, status: :unprocessable_entity }
+          format.json { render json: @tutorial_step.errors, status: :unprocessable_entity }
         end
       end
     end
 
     # PATCH/PUT /tutorial/steps/1
+    # PATCH/PUT /tutorial/steps/1.json
     def update
       @tutorial_post = Tutorial::Post.friendly.find(params[:post_id])
       respond_to do |format|
-        if @steps.update(steps_params)
-          format.html { redirect_to stepss_path, :flash => { :notice => 'Tutorial has been Updated.' }}
-          format.json { render :show, status: :ok, location: @steps }
+        if @tutorial_step.update(tutorial_step_params)
+          format.html { redirect_to @tutorial_step, notice: 'Step was successfully updated.' }
+          format.json { render :show, status: :ok, location: @tutorial_step }
         else
           format.html { render :edit }
-          format.json { render json: @steps.errors, status: :unprocessable_entity }
+          format.json { render json: @tutorial_step.errors, status: :unprocessable_entity }
         end
       end
     end
 
     # DELETE /tutorial/steps/1
+    # DELETE /tutorial/steps/1.json
     def destroy
-      @steps = tutorial_post.steps.find(params[:id])
-      @steps.destroy
-      @steps.destroy
-        respond_to do |format|
-        format.html { redirect_to stepss_path, :flash => { :error => 'Tutorial has been Removed.' }}
+      @tutorial_step = tutorial_post.steps.find(params[:id])
+      @tutorial_step.destroy
+      respond_to do |format|
+        format.html { redirect_to tutorial_steps_url, notice: 'Step was successfully destroyed.' }
         format.json { head :no_content }
       end
     end
@@ -74,17 +78,17 @@ module PhcdevworksTutorials
 
     # Common Callbacks
 
-    def set_steps
-      @steps = Tutorial::Step.find(params[:id])
+    def set_tutorial_step
+      @tutorial_step = Tutorial::Step.friendly.find(params[:id])
     end
-    
+
     def tutorial_post
       @tutorial_post = Tutorial::Post.friendly.find(params[:post_id])
     end
 
     # Whitelist
     def tutorial_step_params
-      params.require(:steps).permit(:steps_number, :steps_body, :slug, :user_id, :org_id)
+      params.require(:tutorial_step).permit(:steps_number, :steps_body, :post_id, :slug, :user_id, :org_id)
     end
 
   end
