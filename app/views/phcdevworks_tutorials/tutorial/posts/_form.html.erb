@@ -11,6 +11,26 @@
   </div>
 
   <div class="form-group field_with_errors">
+    <%= form.label :tutorial_post_description, "Tutorial Description" %>
+    <%= form.text_area :tutorial_post_description, class: "form-control", rows: "10" %>
+  </div>
+
+  <div class="form-group field_with_errors">
+    <%= form.label :tutorial_post_status, "Tutorial Status" %>
+    <%= form.select( :tutorial_post_status, [['Draft','draft'],['Published','published'],['Review','review']], {}, {class: "form-control form-control"}) %>
+  </div>
+
+  <div class="form-group field_with_errors">
+    <%= form.label :remove_tutorial_post_images, "Step Image" %>
+    <%= form.file_field :remove_tutorial_post_images, class: "form-control" %>
+    <% if form.object.tutorial_post_images? %>
+      <%= image_tag form.object.tutorial_post_images_url, class: "img-responsive img-thumbnail" %>
+      <%= form.label :remove_tutorial_post_images %>
+      <%= form.check_box :remove_tutorial_post_images %>
+    <% end %>
+  </div>
+
+  <div class="form-group field_with_errors">
     <label>Select a Category</label>
     <%= form.collection_select :category_id, PhcdevworksTutorials::Tutorial::Category.order(:tutorial_category_name),:id, :tutorial_category_name, {}, {class: "form-control"} %>
   </div>

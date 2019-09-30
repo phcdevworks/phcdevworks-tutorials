@@ -39,7 +39,7 @@ module PhcdevworksTutorials
       @tutorial_step.org_id = current_user.org_id
       respond_to do |format|
         if @tutorial_step.save
-          format.html { redirect_to tutorial_post_steps_path, notice: 'Step was successfully created.' }
+          format.html { redirect_to tutorial_post_steps_path, :flash => { :success => 'Tutorial Step has been Added' }}
           format.json { render :show, status: :created, location: @tutorial_step }
         else
           format.html { render :new }
@@ -54,7 +54,7 @@ module PhcdevworksTutorials
       @tutorial_post = Tutorial::Post.friendly.find(params[:post_id])
       respond_to do |format|
         if @tutorial_step.update(tutorial_step_params)
-          format.html { redirect_to @tutorial_step, notice: 'Step was successfully updated.' }
+          format.html { redirect_to tutorial_post_steps_path, :flash => { :notice => 'Tutorial Step has been Updated.' }}
           format.json { render :show, status: :ok, location: @tutorial_step }
         else
           format.html { render :edit }
@@ -69,7 +69,7 @@ module PhcdevworksTutorials
       @tutorial_step = tutorial_post.steps.find(params[:id])
       @tutorial_step.destroy
       respond_to do |format|
-        format.html { redirect_to tutorial_steps_url, notice: 'Step was successfully destroyed.' }
+        format.html { redirect_to tutorial_post_steps_path, :flash => { :error => 'Tutorial Step has been Removed' }}
         format.json { head :no_content }
       end
     end
@@ -79,7 +79,7 @@ module PhcdevworksTutorials
     # Common Callbacks
 
     def set_tutorial_step
-      @tutorial_step = Tutorial::Step.friendly.find(params[:id])
+      @tutorial_step = Tutorial::Step.find(params[:id])
     end
 
     def tutorial_post
@@ -88,7 +88,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def tutorial_step_params
-      params.require(:tutorial_step).permit(:steps_number, :steps_body, :post_id, :slug, :user_id, :org_id)
+      params.require(:tutorial_step).permit(:steps_number, :steps_body, :tutorial_step_images, :post_id, :slug, :user_id, :org_id)
     end
 
   end

@@ -10,12 +10,22 @@
 		<%= form.select( :tutorial_step_number, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"]], {}, {class: "form-control"}) %>
   </div>
 
-  <div class="field">
-    <%= form.label :tutorial_step_body %>
-    <%= form.text_area :tutorial_step_body %>
+  <div class="form-group field_with_errors">
+    <%= form.label :tutorial_step_body, "Step Text" %>
+    <%= form.text_area :tutorial_step_body, class: "form-control", rows: "10" %>
+  </div>
+
+  <div class="form-group field_with_errors">
+    <%= form.label :remove_tutorial_step_images, "Step Image" %>
+    <%= form.file_field :remove_tutorial_step_images, class: "form-control" %>
+    <% if form.object.tutorial_step_images? %>
+      <%= image_tag form.object.tutorial_step_images_url, class: "img-responsive img-thumbnail" %>
+      <%= form.label :remove_tutorial_step_images %>
+      <%= form.check_box :remove_tutorial_step_images %>
+    <% end %>
   </div>
   <!-- Form Input Fields -->
-  
+
   <!-- Form Submition Button -->
   <div class="actions">
     <%= form.submit class: "btn btn-primary" %>

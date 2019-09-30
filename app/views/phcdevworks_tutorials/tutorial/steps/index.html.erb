@@ -47,9 +47,9 @@
         <tr>
         <td><%= tutorial_step.tutorial_step_number %></td>
         <td><%= tutorial_step.tutorial_step_body %></td>
-        <td><%= link_to 'Show', tutorial_step %></td>
-        <td><%= link_to 'Edit', edit_tutorial_step_path(tutorial_step) %></td>
-        <td><%= link_to 'Destroy', tutorial_step, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', tutorial_post_step_path(tutorial_step.post, tutorial_step) %></td>
+        <td><%= link_to 'Edit', edit_tutorial_post_step_path(tutorial_step.post, tutorial_step) %></td>
+        <td><%= link_to 'Destroy', tutorial_post_step_path(tutorial_step.post, tutorial_step), method: :delete, data: { confirm: 'Are you sure?' } %></td>
         </tr>
         <% end %>
         </tbody>

@@ -4,6 +4,9 @@ module PhcdevworksTutorials
     # Clean URL Initialize
     extend FriendlyId
 
+    # Image Upload
+    has_one_attached :tutorial_post_images
+
     # Relationships
     belongs_to :category, class_name: 'PhcdevworksTutorials::Tutorial::Category'
     has_many :steps, class_name: "PhcdevworksTutorials::Tutorial::Step"
