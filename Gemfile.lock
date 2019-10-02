@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    phcdevworks_tutorials (1.2.0)
+    phcdevworks_tutorials (1.2.1)
       aws-sdk-s3 (~> 1.48)
       friendly_id (~> 5.3)
       google-cloud-storage (~> 1.21)
@@ -84,7 +84,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     aws-eventstream (1.0.3)
     aws-partitions (1.220.0)
-    aws-sdk-core (3.68.0)
+    aws-sdk-core (3.68.1)
       aws-eventstream (~> 1.0, >= 1.0.2)
       aws-partitions (~> 1.0)
       aws-sigv4 (~> 1.1)

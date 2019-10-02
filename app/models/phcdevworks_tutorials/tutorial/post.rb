@@ -5,7 +5,7 @@ module PhcdevworksTutorials
     extend FriendlyId
 
     # Image Upload
-    has_one_attached :tutorial_post_images
+    has_one_attached :tutorial_post_image
 
     # Relationships
     belongs_to :category, class_name: 'PhcdevworksTutorials::Tutorial::Category'
