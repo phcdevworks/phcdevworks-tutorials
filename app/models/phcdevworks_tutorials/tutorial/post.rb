@@ -8,8 +8,8 @@ module PhcdevworksTutorials
     has_one_attached :tutorial_post_image
 
     # Relationships
-    belongs_to :category, class_name: 'PhcdevworksTutorials::Tutorial::Category'
-    has_many :steps, class_name: "PhcdevworksTutorials::Tutorial::Step"
+    has_and_belongs_to_many :categories, class_name: 'Tutorial::Category', :join_table => 'categories_posts', :dependent => :destroy
+    has_many :steps, class_name: "Tutorial::Step"
 
     # Form Fields Validation
     validates :tutorial_post_title,
