@@ -6,6 +6,10 @@ class CreatePhcdevworksTutorialsTutorialSteps < ActiveRecord::Migration[6.0]
       t.integer :tutorial_step_number
       t.text :tutorial_step_body
 
+      t.string :slug
+      t.string :user_id
+      t.string :org_id
+
       t.references :post
 
       t.timestamps

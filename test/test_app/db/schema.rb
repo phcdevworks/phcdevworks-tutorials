@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_02_234831) do
+ActiveRecord::Schema.define(version: 2019_10_04_110613) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -52,6 +52,11 @@ ActiveRecord::Schema.define(version: 2019_10_02_234831) do
     t.index ["key"], name: "index_active_storage_blobs_on_key", unique: true
   end
 
+  create_table "categories_posts", id: false, force: :cascade do |t|
+    t.integer "category_id", null: false
+    t.integer "post_id", null: false
+  end
+
   create_table "phcdevworks_accounts_users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -85,7 +90,6 @@ ActiveRecord::Schema.define(version: 2019_10_02_234831) do
 
   create_table "phcdevworks_tutorials_tutorial_posts", force: :cascade do |t|
     t.string "tutorial_post_title"
-    t.integer "category_id"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -95,12 +99,14 @@ ActiveRecord::Schema.define(version: 2019_10_02_234831) do
     t.text "tutorial_post_description"
     t.string "tutorial_post_status"
     t.string "tutorial_post_image"
-    t.index ["category_id"], name: "index_phcdevworks_tutorials_tutorial_posts_on_category_id"
   end
 
   create_table "phcdevworks_tutorials_tutorial_steps", force: :cascade do |t|
     t.integer "tutorial_step_number"
     t.text "tutorial_step_body"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

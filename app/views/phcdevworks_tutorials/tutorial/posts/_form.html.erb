@@ -32,7 +32,12 @@
 
   <div class="form-group field_with_errors">
     <label>Select a Category</label>
-    <%= form.collection_select :category_id, PhcdevworksTutorials::Tutorial::Category.order(:tutorial_category_name),:id, :tutorial_category_name, {}, {class: "form-control"} %>
+	<div class="panel-body">
+		<%= form.collection_check_boxes :category_ids, PhcdevworksTutorials::Tutorial::Category.order(:tutorial_category_name), :id, :tutorial_category_name do |post_category| %>
+			<%= post_category.check_box %>
+			<%= post_category.label %><br>
+		<% end %>
+	</div>
   </div>
   <!-- Form Input Fields -->
   

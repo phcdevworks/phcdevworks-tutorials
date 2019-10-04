@@ -37,7 +37,8 @@
         <thead>
           <tr>
             <th>Tutorial Title</th>
-            <th>Tutorial Category</th>
+            <th>Tutorial Description</th>
+            <th>Tutorial Status</th>
             <th></th>
           </tr>
         </thead>
@@ -46,7 +47,8 @@
           <% @tutorial_posts.each do |tutorial_post| %>
             <tr>
               <td><%= tutorial_post.tutorial_post_title %></td>
-              <td><%= tutorial_post.category.tutorial_category_name %></td>
+              <td><%= tutorial_post.tutorial_post_description %></td>
+              <td><%= tutorial_post.tutorial_post_status %></td>
               <td>
                 <div class="btn-group d-flex" role="group">
                   <%= link_to "Details", tutorial_post, class: "btn btn-purple btn-xs" %>
