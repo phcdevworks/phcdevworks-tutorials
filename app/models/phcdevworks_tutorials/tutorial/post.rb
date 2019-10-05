@@ -10,9 +10,13 @@ module PhcdevworksTutorials
     # Relationships
     has_and_belongs_to_many :categories, class_name: 'Tutorial::Category', :join_table => 'categories_posts', :dependent => :destroy
     has_many :steps, class_name: "Tutorial::Step"
+    belongs_to :user, class_name: 'PhcdevworksAccounts::User'
 
     # Form Fields Validation
     validates :tutorial_post_title,
+      presence: true
+
+    validates :tutorial_post_description,
       presence: true
 
     # Clean URL Define
