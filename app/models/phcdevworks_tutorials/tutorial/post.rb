@@ -8,9 +8,9 @@ module PhcdevworksTutorials
     has_one_attached :tutorial_post_image
 
     # Relationships
-    has_and_belongs_to_many :categories, class_name: 'Tutorial::Category', :join_table => 'categories_posts', :dependent => :destroy
+    has_and_belongs_to_many :categories, class_name: "Tutorial::Category", :join_table => "categories_posts", :dependent => :destroy
     has_many :steps, class_name: "Tutorial::Step"
-    belongs_to :user, class_name: 'PhcdevworksAccounts::User'
+    belongs_to :user, class_name: "PhcdevworksAccounts::User"
 
     # Form Fields Validation
     validates :tutorial_post_title,

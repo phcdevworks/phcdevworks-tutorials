@@ -6,6 +6,8 @@ module PhcdevworksTutorials
 
     # Relationships
     belongs_to :post, class_name: "PhcdevworksTutorials::Tutorial::Post"
+    has_many :categories, class_name: "Tutorial::Category", :through => :post
+    belongs_to :user, class_name: "PhcdevworksAccounts::User"
 
   end
 end
