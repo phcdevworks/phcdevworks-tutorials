@@ -7,8 +7,8 @@
 
 <!-- Page Bradcrumbs -->
 <ol class="breadcrumb pull-right">
-  <li class="breadcrumb-item"><%= yield(:phc_breadcrumb_one) %></li>
-  <li class="breadcrumb-item active"><%= yield(:phc_breadcrumb_two) %></li>
+    <li class="breadcrumb-item"><%= yield(:phc_breadcrumb_one) %></li>
+    <li class="breadcrumb-item active"><%= yield(:phc_breadcrumb_two) %></li>
 </ol>
 <!-- Page Bradcrumbs -->
 
@@ -18,50 +18,60 @@
 
 <!-- Page & Panel Content -->
 <div class="panel panel-inverse">
-  <!-- Panel Heading -->
-  <div class="panel-heading">
-    <div class="panel-heading-btn">
-      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
-      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
-      <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+
+    <!-- Panel Heading -->
+    <div class="panel-heading">
+        <div class="panel-heading-btn">
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-default" data-click="panel-expand"><i class="fa fa-expand"></i></a>
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-success" data-click="panel-reload"><i class="fa fa-redo"></i></a>
+            <a href="javascript:;" class="btn btn-xs btn-icon btn-circle btn-warning" data-click="panel-collapse"><i class="fa fa-minus"></i></a>
+        </div>
+        <h4 class="panel-title"><%= yield(:phc_title_tagline) %></h4>
     </div>
-    <h4 class="panel-title"><%= yield(:phc_title_tagline) %></h4>
-  </div>
-  <!-- Panel Heading -->
-  <!-- Panel Body -->
-  <div class="panel-body">
-    <!-- Table - Snippet Index -->
-    <div class="table-responsive">
-      <table class="table table-striped table-bordered">
+    <!-- Panel Heading -->
 
-        <thead>
-          <tr>
-            <th>Tutorial Step Number</th>
-            <th>Tutorial Step Body</th>
-            <th></th>
-          </tr>
-        </thead>
+    <!-- Panel Body -->
+    <div class="panel-body">
 
-        <tbody>
-        <% @tutorial_steps.each do |tutorial_step| %>
-        <tr>
-        <td><%= tutorial_step.tutorial_step_number %></td>
-        <td><%= tutorial_step.tutorial_step_body %></td>
-        <td><%= link_to 'Show', tutorial_post_step_path(tutorial_step.post, tutorial_step) %></td>
-        <td><%= link_to 'Edit', edit_tutorial_post_step_path(tutorial_step.post, tutorial_step) %></td>
-        <td><%= link_to 'Destroy', tutorial_post_step_path(tutorial_step.post, tutorial_step), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-        </tr>
-        <% end %>
-        </tbody>
+        <!-- Table - Snippet Index -->
+        <div class="table-responsive">
+            <table class="table table-striped table-bordered">
 
-      </table>
-      <%= link_to phcdevworks_tutorials.new_tutorial_post_step_path, class: "btn btn-primary btn-sm" do %>
-        <i class="fas fa-plus-circle"></i>
-        Add a New Step for Tutorial
-      <% end %>
+                <thead>
+                    <tr>
+                        <th>Tutorial Step Number</th>
+                        <th>Tutorial Step Title</th>
+                        <th></th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    <% @tutorial_steps.each do |tutorial_step| %>
+                        <tr>
+                            <td><%= tutorial_step.tutorial_step_number %></td>
+                            <td><%= tutorial_step.tutorial_step_title %></td>
+                            <td>
+                                <div class="btn-group d-flex" role="group">
+                                    <%= link_to 'Show', tutorial_post_step_path(tutorial_step.post, tutorial_step), class: "btn btn-purple btn-xs" %>
+                                    <%= link_to 'Update', edit_tutorial_post_step_path(tutorial_step.post, tutorial_step), class: "btn btn-primary btn-xs" %>
+                                    <%= link_to "Update", edit_tutorial_post_path(tutorial_post) %>
+                                    <%= link_to 'Destroy', tutorial_post_step_path(tutorial_step.post, tutorial_step), method: :delete, data: { confirm: 'Are you sure? This Action Cannot be Reversed.' }, class: "btn btn-danger btn-xs" %>
+                                </div>
+                            </td>
+                        </tr>
+                    <% end %>
+                </tbody>
+
+            </table>
+            <%= link_to phcdevworks_tutorials.new_tutorial_post_step_path, class: "btn btn-primary btn-sm" do %>
+            <i class="fas fa-plus-circle"></i>
+            Add a New Step for Tutorial
+            <% end %>
+        </div>
+        <!-- Table - Snippet Index -->
+
     </div>
-    <!-- Table - Snippet Index -->
-  </div>
-  <!-- Panel Body -->
+    <!-- Panel Body -->
+
 </div>
 <!-- Page & Panel Content -->

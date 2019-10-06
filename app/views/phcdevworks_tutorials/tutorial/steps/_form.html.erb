@@ -11,8 +11,23 @@
   </div>
 
   <div class="form-group field_with_errors">
+    <%= form.label :tutorial_step_title, "Step Title" %>
+    <%= form.text_area :tutorial_step_title, class: "form-control", rows: "10" %>
+  </div>
+
+  <div class="form-group field_with_errors">
     <%= form.label :tutorial_step_body, "Step Text" %>
     <%= form.text_area :tutorial_step_body, class: "form-control", rows: "10" %>
+  </div>
+
+  <div class="form-group field_with_errors">
+	<div class="form-group field_with_errors">
+		<%= form.label :tutorial_step_image, "Step Image" %>
+		<%= form.file_field :tutorial_step_image, class: "form-control" %>
+	</div>
+	<% if form.object.tutorial_step_image.attached? %>
+		<%= image_tag main_app.url_for(form.object.tutorial_step_image), class: "img-responsive img-thumbnail" %>
+	<% end %>
   </div>
 
   <div class="form-group field_with_errors">
