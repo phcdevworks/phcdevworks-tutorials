@@ -1,50 +1,40 @@
+<!-- Form - Tutorial - Posts -->
 <%= form_with(model: [ @tutorial_post, @tutorial_step], url: form_url, local: true) do |form| %>
 
-	<!-- PHCNotifi Render Validation -->
-	<%= render "phcdevworks_notifications/bootstrap/validations", :object => @tutorial_step %>
-	<!-- PHCNotifi Render Validation -->
+    <!-- PHCNotifi Render Validation -->
+    <%= render "phcdevworks_notifications/bootstrap/validations", :object => @tutorial_step %>
+    <!-- PHCNotifi Render Validation -->
 
-  <!-- Form Input Fields -->
-  <div class="form-group field_with_errors">
-    <%= form.label :tutorial_step_number, "Tutorial Step" %>
-		<%= form.select( :tutorial_step_number, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"]], {}, {class: "form-control"}) %>
-  </div>
+    <!-- Form Input Fields -->
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_number, "Tutorial Step" %>
+        <%= form.select( :tutorial_step_number, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"]], {}, {class: "form-control"}) %>
+    </div>
 
-  <div class="form-group field_with_errors">
-    <%= form.label :tutorial_step_title, "Step Title" %>
-    <%= form.text_area :tutorial_step_title, class: "form-control", rows: "10" %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_title, placeholder: "Step Title", "Step Title" %>
+        <%= form.text_area :tutorial_step_title, class: "form-control", rows: "10" %>
+    </div>
 
-  <div class="form-group field_with_errors">
-    <%= form.label :tutorial_step_body, "Step Text" %>
-    <%= form.text_area :tutorial_step_body, class: "form-control", rows: "10" %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_body, "Step Text" %>
+        <%= form.text_area :tutorial_step_body, class: "form-control", rows: "10" %>
+    </div>
 
-  <div class="form-group field_with_errors">
-	<div class="form-group field_with_errors">
-		<%= form.label :tutorial_step_image, "Step Image" %>
-		<%= form.file_field :tutorial_step_image, class: "form-control" %>
-	</div>
-	<% if form.object.tutorial_step_image.attached? %>
-		<%= image_tag main_app.url_for(form.object.tutorial_step_image), class: "img-responsive img-thumbnail" %>
-	<% end %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_image, "Step Image" %>
+        <%= form.file_field :tutorial_step_image, class: "form-control" %>
+    </div>
+    <% if form.object.tutorial_step_image.attached? %>
+        <%= image_tag main_app.url_for(form.object.tutorial_step_image), class: "img-responsive img-thumbnail" %>
+    <% end %>
+    <!-- Form Input Fields -->
 
-  <div class="form-group field_with_errors">
-	<div class="form-group field_with_errors">
-		<%= form.label :tutorial_step_image, "Step Image" %>
-		<%= form.file_field :tutorial_step_image, class: "form-control" %>
-	</div>
-	<% if form.object.tutorial_step_image.attached? %>
-		<%= image_tag main_app.url_for(form.object.tutorial_step_image), class: "img-responsive img-thumbnail" %>
-	<% end %>
-  </div>
-  <!-- Form Input Fields -->
-
-  <!-- Form Submition Button -->
-  <div class="actions">
-    <%= form.submit class: "btn btn-primary" %>
-  </div>
-  <!-- For Submition Button -->
+    <!-- Form Submition Button -->
+    <div class="actions">
+        <%= form.submit class: "btn btn-primary" %>
+    </div>
+    <!-- For Submition Button -->
 
 <% end %>
+<!-- Form - Tutorial - Posts -->
