@@ -1,33 +1,31 @@
 module PhcdevworksTutorials
-  class Engine < ::Rails::Engine
+    class Engine < ::Rails::Engine
 
-    # Load Main Dependencies
-    require "jbuilder"
-    require "paper_trail"
-    require "friendly_id"
+        # Load Main Dependencies
+        require "jbuilder"
+        require "paper_trail"
+        require "friendly_id"
 
-    # Load Theme Dependencies
-    require "phcthemes_admin_panel_pack"
-    require "phcthemes_web_theme_pack"
+        # Load Theme Dependencies
+        require "phcthemes_admin_panel_pack"
+        require "phcthemes_web_theme_pack"
 
-    # Load Helper Dependencies
-    # require "phcdevworks_core"
-    require "phcdevworks_active_menus"
-    require "phcdevworks_notifications"
-    require "phcdevworks_titleseo"
+        # Load Helper Dependencies
+        require "phcdevworks_core"
+        require "phcdevworks_active_menus"
+        require "phcdevworks_notifications"
+        require "phcdevworks_titleseo"
 
-    # Load User Accounts
-    require "phcdevworks_accounts"
+        # Load Upload Dependencies
+        require "aws-sdk-s3"
+        require "google-cloud-storage"
+        require "mini_magick"
 
-    # Engine Namespace
-    isolate_namespace PhcdevworksTutorials
+        # Load User Accounts
+        require "phcdevworks_accounts"
 
-    # Load Requried Helper Files
-    config.to_prepare do
-      PhcdevworksActiveMenus::ApplicationController.helper(ApplicationHelper)
-      PhcdevworksNotifications::ApplicationController.helper(ApplicationHelper)
-      PhcdevworksTitleseo::ApplicationController.helper(ApplicationHelper)
+        # Engine Namespace
+        isolate_namespace PhcdevworksTutorials
+
     end
-
-  end
 end
