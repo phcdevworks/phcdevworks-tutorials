@@ -15,8 +15,6 @@ module PhcdevworksTutorials
       visit tutorial_steps_url
       click_on "New Tutorial/Step"
 
-      fill_in "Tutorial step body", with: @tutorial_step.tutorial_step_body
-      fill_in "Tutorial step number", with: @tutorial_step.tutorial_step_number
       click_on "Create Step"
 
       assert_text "Step was successfully created"
@@ -27,8 +25,6 @@ module PhcdevworksTutorials
       visit tutorial_steps_url
       click_on "Edit", match: :first
 
-      fill_in "Tutorial step body", with: @tutorial_step.tutorial_step_body
-      fill_in "Tutorial step number", with: @tutorial_step.tutorial_step_number
       click_on "Update Step"
 
       assert_text "Step was successfully updated"

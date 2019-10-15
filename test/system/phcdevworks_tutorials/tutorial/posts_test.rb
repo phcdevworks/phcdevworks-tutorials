@@ -15,9 +15,6 @@ module PhcdevworksTutorials
       visit tutorial_posts_url
       click_on "New Tutorial/Post"
 
-      fill_in "Category", with: @tutorial_post.category_id
-      fill_in "Tutorial post step", with: @tutorial_post.tutorial_post_step
-      fill_in "Tutorial post text", with: @tutorial_post.tutorial_post_text
       click_on "Create Post"
 
       assert_text "Post was successfully created"
@@ -28,9 +25,6 @@ module PhcdevworksTutorials
       visit tutorial_posts_url
       click_on "Edit", match: :first
 
-      fill_in "Category", with: @tutorial_post.category_id
-      fill_in "Tutorial post step", with: @tutorial_post.tutorial_post_step
-      fill_in "Tutorial post text", with: @tutorial_post.tutorial_post_text
       click_on "Update Post"
 
       assert_text "Post was successfully updated"

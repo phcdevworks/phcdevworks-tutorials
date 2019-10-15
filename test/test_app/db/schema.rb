@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_04_110613) do
+ActiveRecord::Schema.define(version: 2019_10_15_105042) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -90,28 +90,29 @@ ActiveRecord::Schema.define(version: 2019_10_04_110613) do
 
   create_table "phcdevworks_tutorials_tutorial_posts", force: :cascade do |t|
     t.string "tutorial_post_title"
+    t.text "tutorial_post_description"
+    t.string "tutorial_post_status"
+    t.string "tutorial_post_image"
+    t.string "tutorial_post_images"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "tutorial_post_images"
-    t.text "tutorial_post_description"
-    t.string "tutorial_post_status"
-    t.string "tutorial_post_image"
   end
 
   create_table "phcdevworks_tutorials_tutorial_steps", force: :cascade do |t|
     t.integer "tutorial_step_number"
-    t.text "tutorial_step_body"
+    t.string "tutorial_step_title"
+    t.text "tutorial_step_description"
+    t.string "tutorial_step_image"
+    t.string "tutorial_step_images"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.string "tutorial_step_images"
-    t.string "tutorial_step_image"
     t.index ["post_id"], name: "index_phcdevworks_tutorials_tutorial_steps_on_post_id"
   end
 

@@ -20,7 +20,7 @@ module PhcdevworksTutorials
 
     test "should create tutorial_category" do
       assert_difference('Tutorial::Category.count') do
-        post tutorial_categories_url, params: { tutorial_category: { tutorial_category_name: @tutorial_category.tutorial_category_name } }
+        post tutorial_categories_url, params: { tutorial_category: {  } }
       end
 
       assert_redirected_to tutorial_category_url(Tutorial::Category.last)
@@ -37,7 +37,7 @@ module PhcdevworksTutorials
     end
 
     test "should update tutorial_category" do
-      patch tutorial_category_url(@tutorial_category), params: { tutorial_category: { tutorial_category_name: @tutorial_category.tutorial_category_name } }
+      patch tutorial_category_url(@tutorial_category), params: { tutorial_category: {  } }
       assert_redirected_to tutorial_category_url(@tutorial_category)
     end
 
