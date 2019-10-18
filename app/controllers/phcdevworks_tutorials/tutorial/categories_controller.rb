@@ -16,7 +16,6 @@ module PhcdevworksTutorials
 
     # GET /tutorial/categories/1
     def show
-      @tutorial_category = Tutorial::Category.friendly.find(params[:id])
     end
 
     # GET /tutorial/categories/new
@@ -70,7 +69,7 @@ module PhcdevworksTutorials
 
     # Common Callbacks
     def set_tutorial_category
-      @tutorial_category = Tutorial::Category.friendly.find(params[:id])
+      @tutorial_category = Tutorial::Category.find(params[:id])
     end
 
     # Whitelist

@@ -1,20 +1,11 @@
 PhcdevworksTutorials::Engine.routes.draw do
 
-  namespace :tutorial do
-    resources :steps
-  end
-  namespace :tutorial do
-    resources :posts
-  end
-  namespace :tutorial do
-    resources :categories
-  end
     # Tutorial Routs
     namespace :tutorial do
-        resources :posts, class_name: "PhcdevworksTutorials::Tutorial::Post" do
-            resources :steps, class_name: "PhcdevworksTutorials::Tutorial::Step"
+        resources :posts, class_name: "Tutorial::Post" do
+            resources :steps, class_name: "Tutorial::Step"
         end
-        resources :categories, class_name: "PhcdevworksTutorials::Tutorial::Category"
+        resources :categories, class_name: "Tutorial::Category"
     end
 
     # Frontend Routes

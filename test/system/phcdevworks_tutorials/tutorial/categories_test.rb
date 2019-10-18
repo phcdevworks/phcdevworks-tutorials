@@ -15,6 +15,7 @@ module PhcdevworksTutorials
       visit tutorial_categories_url
       click_on "New Tutorial/Category"
 
+      fill_in "Tutorial category name", with: @tutorial_category.tutorial_category_name
       click_on "Create Category"
 
       assert_text "Category was successfully created"
@@ -25,6 +26,7 @@ module PhcdevworksTutorials
       visit tutorial_categories_url
       click_on "Edit", match: :first
 
+      fill_in "Tutorial category name", with: @tutorial_category.tutorial_category_name
       click_on "Update Category"
 
       assert_text "Category was successfully updated"

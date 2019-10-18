@@ -5,7 +5,7 @@ module PhcdevworksTutorials
     has_one_attached :tutorial_step_image
 
     # Relationships
-    belongs_to :post, class_name: "PhcdevworksTutorials::Tutorial::Post"
+    belongs_to :post, class_name: "Tutorial::Post"
     has_many :categories, class_name: "Tutorial::Category", :through => :post
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
 

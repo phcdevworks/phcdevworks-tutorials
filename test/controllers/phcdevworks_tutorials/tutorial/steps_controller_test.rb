@@ -20,7 +20,7 @@ module PhcdevworksTutorials
 
     test "should create tutorial_step" do
       assert_difference('Tutorial::Step.count') do
-        post tutorial_steps_url, params: { tutorial_step: {  } }
+        post tutorial_steps_url, params: { tutorial_step: { post_id: @tutorial_step.post_id, tutorial_step_description: @tutorial_step.tutorial_step_description, tutorial_step_image: @tutorial_step.tutorial_step_image, tutorial_step_number: @tutorial_step.tutorial_step_number, tutorial_step_title: @tutorial_step.tutorial_step_title } }
       end
 
       assert_redirected_to tutorial_step_url(Tutorial::Step.last)
@@ -37,7 +37,7 @@ module PhcdevworksTutorials
     end
 
     test "should update tutorial_step" do
-      patch tutorial_step_url(@tutorial_step), params: { tutorial_step: {  } }
+      patch tutorial_step_url(@tutorial_step), params: { tutorial_step: { post_id: @tutorial_step.post_id, tutorial_step_description: @tutorial_step.tutorial_step_description, tutorial_step_image: @tutorial_step.tutorial_step_image, tutorial_step_number: @tutorial_step.tutorial_step_number, tutorial_step_title: @tutorial_step.tutorial_step_title } }
       assert_redirected_to tutorial_step_url(@tutorial_step)
     end
 

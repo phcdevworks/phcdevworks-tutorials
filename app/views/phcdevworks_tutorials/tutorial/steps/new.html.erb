@@ -1,47 +1,5 @@
-<!-- PHCTitleSEO Title Variables -->
-<% phc_title "Tutorial Post Manager" %>
-<% phc_title_tagline "Add a New Step" %>
-<% phc_breadcrumb_one yield(:phc_title_tagline) %>
-<% phc_breadcrumb_two link_to "Tutorial Step Index", phcdevworks_tutorials.tutorial_post_steps_path %>
-<!-- PHCTitleSEO Title Variables -->
+<h1>New Tutorial Step</h1>
 
-<!-- Page Bradcrumbs -->
-<ol class="breadcrumb pull-right">
-    <li class="breadcrumb-item"><%= yield(:phc_breadcrumb_one) %></li>
-    <li class="breadcrumb-item active"><%= yield(:phc_breadcrumb_two) %></li>
-</ol>
-<!-- Page Bradcrumbs -->
+<%= render 'form', tutorial_step: @tutorial_step %>
 
-<!-- Page Header -->
-<h2 class="page-header"><%= yield(:phc_title) %></h2>
-<!-- Page Header -->
-
-<!-- Page Content -->
-<div class="row">
-	<div class="col-lg-12">
-
-		<!-- Panel -->
-		<div class="panel panel-inverse">
-
-			<!-- Panel - Heading -->
-			<div class="panel-heading">
-				<h4 class="panel-title"><%= yield(:phc_title) %></h4>
-			</div>
-			<!-- Panel - Heading -->
-
-			<!-- Panel - Body -->
-			<div class="panel-body">
-
-				<!-- New Form -->
-				<%= render "form", { form_url: tutorial_post_steps_path } %>
-				<!-- New Form -->
-
-			</div>
-			<!-- Panel - Body -->
-
-		</div>
-		<!-- Panel -->
-
-	</div>
-</div>
-<!-- Page Content -->
+<%= link_to 'Back', tutorial_steps_path %>

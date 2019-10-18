@@ -16,7 +16,6 @@ module PhcdevworksTutorials
 
     # GET /tutorial/posts/1
     def show
-      @tutorial_post = Tutorial::Post.friendly.find(params[:id])
     end
 
     # GET /tutorial/posts/new
@@ -60,9 +59,9 @@ module PhcdevworksTutorials
     # DELETE /tutorial/posts/1
     def destroy
       @tutorial_post.destroy
-      respond_to do |format|
-        format.html { redirect_to tutorial_posts_path, :flash => { :error => 'Tutorial has been Removed.' }}
-        format.json { head :no_content }
+        respond_to do |format|
+          format.html { redirect_to tutorial_posts_path, :flash => { :error => 'Tutorial has been Removed.' }}
+          format.json { head :no_content }
       end
     end
 
@@ -70,12 +69,12 @@ module PhcdevworksTutorials
 
     # Common Callbacks
     def set_tutorial_post
-      @tutorial_post = Tutorial::Post.friendly.find(params[:id])
+      @tutorial_post = Tutorial::Post.find(params[:id])
     end
 
     # Whitelist
     def tutorial_post_params
-      params.require(:tutorial_post).permit(:tutorial_post_step, :tutorial_post_title, :tutorial_post_text,:tutorial_post_description, :tutorial_post_status, :tutorial_post_image, :slug, :user_id, :org_id, category_ids: [])
+      params.require(:tutorial_post).permit(:tutorial_post_title, :tutorial_post_description, :tutorial_post_status, :tutorial_post_image, :slug, :user_id, :org_id)
     end
 
   end

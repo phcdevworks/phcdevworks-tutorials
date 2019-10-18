@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tutorial step number:</strong>
+  <%= @tutorial_step.tutorial_step_number %>
+</p>
+
+<p>
+  <strong>Tutorial step title:</strong>
+  <%= @tutorial_step.tutorial_step_title %>
+</p>
+
+<p>
+  <strong>Tutorial step description:</strong>
+  <%= @tutorial_step.tutorial_step_description %>
+</p>
+
+<p>
+  <strong>Tutorial step image:</strong>
+  <%= @tutorial_step.tutorial_step_image %>
+</p>
+
+<p>
+  <strong>Post:</strong>
+  <%= @tutorial_step.post_id %>
+</p>
+
+<%= link_to 'Edit', edit_tutorial_step_path(@tutorial_step) %> |
+<%= link_to 'Back', tutorial_steps_path %>

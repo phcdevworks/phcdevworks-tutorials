@@ -1,6 +1,6 @@
 module PhcdevworksTutorials
   class Tutorial::Post < ApplicationRecord
-
+  
     # Clean URL Initialize
     extend FriendlyId
 
