@@ -2,7 +2,7 @@ require_dependency "phcdevworks_tutorials/application_controller"
 
 module PhcdevworksTutorials
   class Tutorial::StepsController < ApplicationController
-  
+
     # Filters & Security
     #include PhcdevworksCore::PhcpluginsHelper
     before_action :authenticate_user!
@@ -11,7 +11,7 @@ module PhcdevworksTutorials
 
     # GET /tutorial/steps
     def index
-      @tutorial_steps = tutorial_post.steps.all
+      @tutorial_steps = tutorial_post.steps.order("tutorial_step_number")
     end
 
     # GET /tutorial/steps/1
@@ -47,7 +47,7 @@ module PhcdevworksTutorials
 
     # PATCH/PUT /tutorial/steps/1
     def update
-    @tutorial_post = Tutorial::Post.friendly.find(params[:post_id])
+      @tutorial_post = Tutorial::Post.friendly.find(params[:post_id])
       respond_to do |format|
         if @tutorial_step.update(tutorial_step_params)
           format.html { redirect_to tutorial_post_steps_url, :flash => { :notice => 'Member Listing has been Updated.' }}

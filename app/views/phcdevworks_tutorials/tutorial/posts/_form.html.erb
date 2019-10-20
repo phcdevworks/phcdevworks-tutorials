@@ -1,37 +1,50 @@
+<!-- Form - Tutorial - Posts -->
 <%= form_with(model: tutorial_post, local: true) do |form| %>
-  <% if tutorial_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tutorial_post.errors.count, "error") %> prohibited this tutorial_post from being saved:</h2>
 
-      <ul>
-        <% tutorial_post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <!-- PHCNotifi Render Validation -->
+    <%= render "phcdevworks_notifications/bootstrap/validations", :object => @tutorial_post %>
+    <!-- PHCNotifi Render Validation -->
+
+    <!-- Form Input Fields -->
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_post_title, "Tutorial Title" %>
+        <%= form.text_field :tutorial_post_title, placeholder: "Tutorial Title", class: "form-control" %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :tutorial_post_title %>
-    <%= form.text_field :tutorial_post_title %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_post_description, "Tutorial Description" %>
+        <%= form.text_area :tutorial_post_description, class: "form-control", rows: "10" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :tutorial_post_description %>
-    <%= form.text_field :tutorial_post_description %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_post_status, "Tutorial Status" %>
+        <%= form.select( :tutorial_post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control form-control"}) %>
+    </div>
 
-  <div class="field">
-    <%= form.label :tutorial_post_status %>
-    <%= form.text_field :tutorial_post_status %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_post_image, "Featured Image" %>
+        <%= form.file_field :tutorial_post_image, class: "form-control" %>
+    </div>
+    <% if form.object.tutorial_post_image.attached? %>
+        <%= image_tag main_app.url_for(form.object.tutorial_post_image), class: "img-responsive img-thumbnail" %>
+    <% end %>
 
-  <div class="field">
-    <%= form.label :tutorial_post_image %>
-    <%= form.text_field :tutorial_post_image %>
-  </div>
+    <div class="form-group field_with_errors">
+        <label>Select a Category</label>
+        <div class="panel-body">
+            <%= form.collection_check_boxes :category_ids, PhcdevworksTutorials::Tutorial::Category.order(:tutorial_category_name), :id, :tutorial_category_name do |post_category| %>
+                <%= post_category.check_box %>
+                <%= post_category.label %><br>
+            <% end %>
+        </div>
+    </div>
+    <!-- Form Input Fields -->
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+    <!-- Form Submition Button -->
+    <div class="actions">
+        <%= form.submit class: "btn btn-primary" %>
+    </div>
+    <!-- For Submition Button -->
+
 <% end %>
+<!-- Form - Tutorial - Posts -->

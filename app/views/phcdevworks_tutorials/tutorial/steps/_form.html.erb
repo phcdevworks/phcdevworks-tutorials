@@ -1,42 +1,38 @@
-<%= form_with(model: tutorial_step, local: true) do |form| %>
-  <% if tutorial_step.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(tutorial_step.errors.count, "error") %> prohibited this tutorial_step from being saved:</h2>
+<!-- Form - Tutorial - Posts -->
+<%= form_with(model: [@tutorial_post, @tutorial_step], url: form_url, local: true) do |form| %>
 
-      <ul>
-        <% tutorial_step.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <!-- PHCNotifi Render Validation -->
+    <%= render "phcdevworks_notifications/bootstrap/validations", :object => @tutorial_step %>
+    <!-- PHCNotifi Render Validation -->
+
+    <!-- Form Input Fields -->
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_number, "Tutorial Step" %>
+        <%= form.select( :tutorial_step_number, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"]], {}, {class: "form-control"}) %>
     </div>
-  <% end %>
 
-  <div class="field">
-    <%= form.label :tutorial_step_number %>
-    <%= form.text_field :tutorial_step_number %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_title, placeholder: "Step Title" %>
+        <%= form.text_field :tutorial_step_title, class: "form-control", rows: "10" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :tutorial_step_title %>
-    <%= form.text_field :tutorial_step_title %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_description, "Step Text" %>
+        <%= form.text_area :tutorial_step_description, class: "form-control", rows: "10" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :tutorial_step_description %>
-    <%= form.text_field :tutorial_step_description %>
-  </div>
+    <div class="form-group field_with_errors">
+        <%= form.label :tutorial_step_image, "Step Image" %>
+        <%= form.file_field :tutorial_step_image, class: "form-control" %>
+    </div>
+  
+    <!-- Form Input Fields -->
 
-  <div class="field">
-    <%= form.label :tutorial_step_image %>
-    <%= form.text_field :tutorial_step_image %>
-  </div>
+    <!-- Form Submition Button -->
+    <div class="actions">
+        <%= form.submit class: "btn btn-primary" %>
+    </div>
+    <!-- For Submition Button -->
 
-  <div class="field">
-    <%= form.label :post_id %>
-    <%= form.text_field :post_id %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
+<!-- Form - Tutorial - Posts -->

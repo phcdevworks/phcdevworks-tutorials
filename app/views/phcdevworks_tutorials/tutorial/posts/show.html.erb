@@ -1,24 +1,4 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Tutorial post title:</strong>
-  <%= @tutorial_post.tutorial_post_title %>
-</p>
-
-<p>
-  <strong>Tutorial post description:</strong>
-  <%= @tutorial_post.tutorial_post_description %>
-</p>
-
-<p>
-  <strong>Tutorial post status:</strong>
-  <%= @tutorial_post.tutorial_post_status %>
-</p>
-
-<p>
-  <strong>Tutorial post image:</strong>
-  <%= @tutorial_post.tutorial_post_image %>
-</p>
-
 <%= link_to 'Edit', edit_tutorial_post_path(@tutorial_post) %> |
 <%= link_to 'Back', tutorial_posts_path %>
