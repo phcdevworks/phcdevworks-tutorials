@@ -5,7 +5,7 @@ module PhcdevworksTutorials
     extend FriendlyId
 
     #Relationships
-    has_and_belongs_to_many :posts, class_name: 'Tutorial::Post', :join_table => 'categories_posts', :dependent => :destroy
+    has_and_belongs_to_many :posts, class_name: 'Tutorial::Post', :join_table => 'phcdevworks_tutorials_categories_posts', :dependent => :destroy
 
     # Form Fields Validation
     validates :tutorial_category_name,
