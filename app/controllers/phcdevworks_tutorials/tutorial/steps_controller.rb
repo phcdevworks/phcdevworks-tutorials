@@ -82,7 +82,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def tutorial_step_params
-      params.require(:tutorial_step).permit(:tutorial_step_number, :tutorial_step_title, :tutorial_step_description, :tutorial_step_image, :post_id, :slug, :user_id, :org_id)
+      params.require(:tutorial_step).permit(:step_number, :step_title, :step_description, :step_image, :post_id, :slug, :user_id, :org_id)
     end
 
   end
