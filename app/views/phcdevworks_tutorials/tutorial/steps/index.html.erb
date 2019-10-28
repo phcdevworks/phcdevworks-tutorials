@@ -47,8 +47,8 @@
                         <tbody>
                             <% @tutorial_steps.each do |tutorial_step| %>
                                 <tr>
-                                    <td><%= tutorial_step.tutorial_step_number %></td>
-                                    <td><%= tutorial_step.tutorial_step_title %></td>
+                                    <td><%= tutorial_step.step_number %></td>
+                                    <td><%= tutorial_step.step_title %></td>
                                     <td>
                                         <div class="btn-group d-flex" role="group">
                                             <%= link_to "Step Details", tutorial_post_step_path(tutorial_step.post, tutorial_step), class: "btn btn-purple btn-xs" %>

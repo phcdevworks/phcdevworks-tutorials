@@ -7,23 +7,23 @@
 
     <!-- Form Input Fields -->
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_step_number, "Tutorial Step" %>
-        <%= form.select( :tutorial_step_number, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"]], {}, {class: "form-control"}) %>
+        <%= form.label :step_number, "Tutorial Step" %>
+        <%= form.select( :step_number, [["1","1"],["2","2"],["3","3"],["4","4"],["5","5"],["6","6"],["7","7"],["8","8"],["9","9"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"]], {}, {class: "form-control"}) %>
     </div>
 
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_step_title, placeholder: "Step Title" %>
-        <%= form.text_field :tutorial_step_title, class: "form-control", rows: "10" %>
+        <%= form.label :step_title, placeholder: "Step Title" %>
+        <%= form.text_field :step_title, class: "form-control", rows: "10" %>
     </div>
 
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_step_description, "Step Text" %>
-        <%= form.text_area :tutorial_step_description, class: "form-control", rows: "10" %>
+        <%= form.label :step_description, "Step Text" %>
+        <%= form.text_area :step_description, class: "form-control", rows: "10" %>
     </div>
 
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_step_image, "Step Image" %>
-        <%= form.file_field :tutorial_step_image, class: "form-control" %>
+        <%= form.label :step_image, "Step Image" %>
+        <%= form.file_field :step_image, class: "form-control" %>
     </div>
   
     <!-- Form Input Fields -->

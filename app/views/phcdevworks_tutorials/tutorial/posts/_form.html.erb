@@ -7,32 +7,32 @@
 
     <!-- Form Input Fields -->
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_post_title, "Tutorial Title" %>
-        <%= form.text_field :tutorial_post_title, placeholder: "Tutorial Title", class: "form-control" %>
+        <%= form.label :post_title, "Tutorial Title" %>
+        <%= form.text_field :post_title, placeholder: "Tutorial Title", class: "form-control" %>
     </div>
 
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_post_description, "Tutorial Description" %>
-        <%= form.text_area :tutorial_post_description, class: "form-control", rows: "10" %>
+        <%= form.label :post_description, "Tutorial Description" %>
+        <%= form.text_area :post_description, class: "form-control", rows: "10" %>
     </div>
 
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_post_status, "Tutorial Status" %>
-        <%= form.select( :tutorial_post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control"}) %>
+        <%= form.label :post_status, "Tutorial Status" %>
+        <%= form.select( :post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control"}) %>
     </div>
 
     <div class="form-group field_with_errors">
-        <%= form.label :tutorial_post_image, "Featured Image" %>
-        <%= form.file_field :tutorial_post_image, class: "form-control" %>
+        <%= form.label :post_image, "Featured Image" %>
+        <%= form.file_field :post_image, class: "form-control" %>
     </div>
-    <% if form.object.tutorial_post_image.attached? %>
-        <%= image_tag main_app.url_for(form.object.tutorial_post_image), class: "img-responsive img-thumbnail" %>
+    <% if form.object.post_image.attached? %>
+        <%= image_tag main_app.url_for(form.object.post_image), class: "img-responsive img-thumbnail" %>
     <% end %>
 
     <div class="form-group field_with_errors">
         <label>Select a Category</label>
         <div class="panel-body">
-            <%= form.collection_check_boxes :category_ids, PhcdevworksTutorials::Tutorial::Category.order(:tutorial_category_name), :id, :tutorial_category_name do |post_category| %>
+            <%= form.collection_check_boxes :category_ids, PhcdevworksTutorials::Tutorial::Category.order(:category_name), :id, :category_name do |post_category| %>
                 <%= post_category.check_box %>
                 <%= post_category.label %><br>
             <% end %>

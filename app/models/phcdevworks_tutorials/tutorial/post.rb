@@ -5,7 +5,7 @@ module PhcdevworksTutorials
     extend FriendlyId
 
     # Image Upload
-    has_one_attached :tutorial_post_image
+    has_one_attached :post_image
 
     # Relationships
     has_and_belongs_to_many :categories, class_name: "Tutorial::Category", :join_table => "phcdevworks_tutorials_categories_posts", :dependent => :destroy
@@ -13,17 +13,17 @@ module PhcdevworksTutorials
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
 
     # Form Fields Validation
-    validates :tutorial_post_title,
+    validates :post_title,
       presence: true
 
-    validates :tutorial_post_description,
+    validates :post_description,
       presence: true
 
     # Clean URL Define
-    friendly_id :phcdev_tutorials_post_nice_urls, use: [:slugged, :finders]
+    friendly_id :phcdev_tutorial_post_nice_urls, use: [:slugged, :finders]
 
-    def phcdev_tutorials_post_nice_urls
-      [:tutorial_post_title]
+    def phcdev_tutorial_post_nice_urls
+      [:post_title]
     end
 
   end

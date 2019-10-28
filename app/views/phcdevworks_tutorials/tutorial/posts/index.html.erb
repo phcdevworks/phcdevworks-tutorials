@@ -48,9 +48,9 @@
                         <tbody>
                             <% @tutorial_posts.each do |tutorial_post| %>
                                 <tr>
-                                    <td><%= tutorial_post.tutorial_post_title %></td>
-                                    <td><%= tutorial_post.tutorial_post_description %></td>
-                                    <td><%= tutorial_post.tutorial_post_status.capitalize %></td>
+                                    <td><%= tutorial_post.post_title %></td>
+                                    <td><%= tutorial_post.post_description %></td>
+                                    <td><%= tutorial_post.post_status.capitalize %></td>
                                     <td>
                                         <div class="btn-group d-flex" role="group">
                                             <%= link_to "Tutorial Details", tutorial_post, class: "btn btn-purple btn-xs" %>

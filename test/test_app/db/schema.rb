@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_25_123548) do
+ActiveRecord::Schema.define(version: 2019_10_28_095407) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -80,7 +80,7 @@ ActiveRecord::Schema.define(version: 2019_10_25_123548) do
   end
 
   create_table "phcdevworks_tutorials_tutorial_categories", force: :cascade do |t|
-    t.string "tutorial_category_name"
+    t.string "category_name"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -89,10 +89,10 @@ ActiveRecord::Schema.define(version: 2019_10_25_123548) do
   end
 
   create_table "phcdevworks_tutorials_tutorial_posts", force: :cascade do |t|
-    t.string "tutorial_post_title"
-    t.string "tutorial_post_description"
-    t.string "tutorial_post_status"
-    t.string "tutorial_post_image"
+    t.string "post_title"
+    t.string "post_description"
+    t.string "post_status"
+    t.string "post_image"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -101,10 +101,10 @@ ActiveRecord::Schema.define(version: 2019_10_25_123548) do
   end
 
   create_table "phcdevworks_tutorials_tutorial_steps", force: :cascade do |t|
-    t.string "tutorial_step_number"
-    t.string "tutorial_step_title"
-    t.string "tutorial_step_description"
-    t.string "tutorial_step_image"
+    t.string "step_number"
+    t.string "step_title"
+    t.string "step_description"
+    t.string "step_image"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
