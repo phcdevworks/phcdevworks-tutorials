@@ -4,6 +4,9 @@ module PhcdevworksTutorials
     # Clean URL Initialize
     extend FriendlyId
 
+    # Paper Trail Initialize
+    has_paper_trail :class_name => 'PhcdevworksTutorials::TutorialPostVersions'
+
     # Image Upload
     has_one_attached :post_image
 

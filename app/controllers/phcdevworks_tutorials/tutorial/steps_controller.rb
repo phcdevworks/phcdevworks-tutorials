@@ -11,7 +11,7 @@ module PhcdevworksTutorials
 
     # GET /tutorial/steps
     def index
-      @tutorial_steps = tutorial_post.steps.order("tutorial_step_number")
+      @tutorial_steps = tutorial_post.steps.order("step_number")
     end
 
     # GET /tutorial/steps/1

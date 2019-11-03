@@ -4,6 +4,9 @@ module PhcdevworksTutorials
     # Clean URL Initialize
     extend FriendlyId
 
+    # Paper Trail Initialize
+    has_paper_trail :class_name => 'PhcdevworksTutorials::TutorialCategoryVersions'
+
     #Relationships
     has_and_belongs_to_many :posts, class_name: "Tutorial::Post", :join_table => "phcdevworks_tutorials_categories_posts", :dependent => :destroy
 
