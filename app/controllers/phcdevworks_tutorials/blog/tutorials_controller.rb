@@ -8,7 +8,7 @@ module PhcdevworksTutorials
 
     # INDEX
     def index
-      @phcdevworks_tutorials_index = Tutorial::Post.where(tutorial_post_status: "published")
+      @phcdevworks_tutorials_index = Tutorial::Post.where(post_status: "published")
     end
 
     # SHOW
