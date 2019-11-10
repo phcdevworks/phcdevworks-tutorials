@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_03_055267) do
+ActiveRecord::Schema.define(version: 2019_11_10_232831) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -141,6 +141,7 @@ ActiveRecord::Schema.define(version: 2019_11_03_055267) do
     t.integer "post_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "step_copy_instruction"
     t.index ["post_id"], name: "index_phcdevworks_tutorials_tutorial_steps_on_post_id"
   end
 
