@@ -51,7 +51,6 @@
                                     <td><%= tutorial_step.step_title %></td>
                                     <td>
                                         <div class="btn-group d-flex" role="group">
-                                            <%= link_to "Step Details", tutorial_post_step_path(tutorial_step.post, tutorial_step), class: "btn btn-purple btn-xs" %>
                                             <%= link_to "Update Step", edit_tutorial_post_step_path(tutorial_step.post, tutorial_step), class: "btn btn-primary btn-xs" %>
                                             <%= link_to "Remove Step", tutorial_post_step_path(tutorial_step.post, tutorial_step), method: :delete, data: { confirm: "Are you sure? This Action Cannot be Reversed." }, class: "btn btn-danger btn-xs" %>
                                         </div>
