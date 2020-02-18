@@ -4,7 +4,7 @@ class CreatePhcdevworksTutorialsTutorialSteps < ActiveRecord::Migration[6.0]
 
       t.string :step_number
       t.string :step_title
-      t.string :step_description
+      t.text :step_description
       t.string :step_image
 
       t.string :slug

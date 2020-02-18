@@ -1,3 +1,3 @@
 module PhcdevworksTutorials
-    VERSION = "5.2.2"
+    VERSION = "6.0.0"
 end
