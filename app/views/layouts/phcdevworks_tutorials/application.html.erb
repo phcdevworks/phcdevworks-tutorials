@@ -64,8 +64,77 @@
     <!-- Page Container -->
 
     <!-- JavaScript -->
-    <%= javascript_include_tag "phcdevworks_tutorials/application", "data-turbolinks-track": "reload" %>
+    <%= javascript_include_tag "phcdevworks_press/application", "data-turbolinks-track": "reload" %>
     <!-- JavaScript -->
+
+    <!-- JavaScript CKEditor -->
+    <script>ClassicEditor
+        .create( document.querySelector( '.editor' ), {
+            toolbar: {
+                items: [
+                    'heading',
+                    '|',
+                    'fontBackgroundColor',
+                    'fontColor',
+                    'fontSize',
+                    'fontFamily',
+                    '|',
+                    'removeFormat',
+                    'subscript',
+                    'superscript',
+                    'bold',
+                    'italic',
+                    'link',
+                    '|',
+                    'todoList',
+                    'bulletedList',
+                    'numberedList',
+                    '|',
+                    'alignment',
+                    'indent',
+                    'outdent',
+                    '|',
+                    'blockQuote',
+                    'insertTable',
+                    'mediaEmbed',
+                    'undo',
+                    'redo',
+                    '|',
+                    'codeBlock',
+                    'code',
+                    'MathType',
+                    'ChemType',
+                    'comment'
+                ]
+            },
+            language: 'en',
+            image: {
+                toolbar: [
+                    'imageTextAlternative',
+                    'imageStyle:full',
+                    'imageStyle:side'
+                ]
+            },
+            table: {
+                contentToolbar: [
+                    'tableColumn',
+                    'tableRow',
+                    'mergeTableCells'
+                ]
+            },
+            licenseKey: '',
+            sidebar: {
+                container: document.querySelector( '.sidebar' )
+            },
+        } )
+        .then( editor => {
+            window.editor = editor;
+        } )
+        .catch( error => {
+            console.error( error );
+        } );
+    </script>
+    <!-- JavaScript CKEditor -->
 
 </body>
 </html>

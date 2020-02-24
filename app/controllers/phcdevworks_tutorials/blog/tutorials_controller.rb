@@ -8,7 +8,8 @@ module PhcdevworksTutorials
 
     # INDEX
     def index
-      @phcdevworks_tutorials_index = Tutorial::Post.where(post_status: "published")
+      @phcdevworks_tutorials_index = Tutorial::Post.where(post_status: "published").order("created_at DESC")
+      @phcdevworks_tutorials_photo_randomizer = Tutorial::Post.order('RANDOM()').limit(1)
     end
 
     # SHOW
