@@ -1,7 +1,7 @@
 module PhcdevworksTutorials
-  module Commands
+  module Command
     def self.table_name_prefix
-      'phcdevworks_tutorials_commands_'
+      'phcdevworks_tutorials_command_'
     end
   end
 end

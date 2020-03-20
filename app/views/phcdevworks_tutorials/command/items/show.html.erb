@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Item name:</strong>
+  <%= @command_item.item_name %>
+</p>
+
+<p>
+  <strong>Item description:</strong>
+  <%= @command_item.item_description %>
+</p>
+
+<p>
+  <strong>Item copy command:</strong>
+  <%= @command_item.item_copy_command %>
+</p>
+
+<%= link_to 'Edit', edit_command_item_path(@command_item) %> |
+<%= link_to 'Back', command_items_path %>

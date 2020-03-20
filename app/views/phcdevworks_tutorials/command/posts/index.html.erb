@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Command Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Post title</th>
+      <th>Post description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @command_posts.each do |command_post| %>
+      <tr>
+        <td><%= command_post.post_title %></td>
+        <td><%= command_post.post_description %></td>
+        <td><%= link_to 'Show', command_post %></td>
+        <td><%= link_to 'Edit', edit_command_post_path(command_post) %></td>
+        <td><%= link_to 'Destroy', command_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Command Post', new_command_post_path %>

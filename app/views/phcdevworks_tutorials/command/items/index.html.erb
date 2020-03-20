@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Command Items</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Item name</th>
+      <th>Item description</th>
+      <th>Item copy command</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @command_items.each do |command_item| %>
+      <tr>
+        <td><%= command_item.item_name %></td>
+        <td><%= command_item.item_description %></td>
+        <td><%= command_item.item_copy_command %></td>
+        <td><%= link_to 'Show', command_item %></td>
+        <td><%= link_to 'Edit', edit_command_item_path(command_item) %></td>
+        <td><%= link_to 'Destroy', command_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Command Item', new_command_item_path %>
