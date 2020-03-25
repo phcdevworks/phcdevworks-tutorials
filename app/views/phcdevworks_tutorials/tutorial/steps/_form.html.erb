@@ -6,28 +6,28 @@
     <!-- PHCNotifi Render Validation -->
 
     <!-- Form Input Fields -->
-    <div class="form-group field_with_errors">
+    <div class="form-group">
         <%= form.label :step_number, "Tutorial Step" %>
         <%= form.select( :step_number, [["01","01"],["02","02"],["03","03"],["04","04"],["05","05"],["06","06"],["07","07"],["08","08"],["09","09"],["10","10"],["11","11"],["12","12"],["13","13"],["14","14"],["15","15"],["16","16"],["17","17"],["18","18"],["19","19"],["20","20"]], {}, {class: "form-control"}) %>
     </div>
 
-    <div class="form-group field_with_errors">
+    <div class="form-group">
         <%= form.label :step_title, placeholder: "Step Title" %>
         <%= form.text_field :step_title, class: "form-control" %>
     </div>
 
-    <div class="form-group field_with_errors">
+    <div class="form-group">
         <%= form.label :step_description, "Step Text" %>
         <%= form.text_area :step_description, class: "form-control", class: "editor", rows: "10" %>
         <div id="word-count" class="mt-3"></div>
     </div>
 
-    <div class="form-group field_with_errors">
+    <div class="form-group">
         <%= form.label :step_copy_instruction, "Step Instructions (to Copy)" %>
         <%= form.text_area :step_copy_instruction, class: "form-control" %>
     </div>
 
-    <div class="form-group field_with_errors">
+    <div class="form-group">
         <%= form.label :step_image, "Step Image" %>
         <%= form.file_field :step_image, class: "form-control" %>
     </div>

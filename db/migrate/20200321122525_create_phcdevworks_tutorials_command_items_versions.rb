@@ -1,7 +1,7 @@
-class CreatePhcdevworksTutorialsTutorialPostVersions < ActiveRecord::Migration[6.0]
+class CreatePhcdevworksTutorialsCommandItemsVersions < ActiveRecord::Migration[6.0]
     TEXT_BYTES = 1_073_741_823
     def change
-        create_table :phcdevworks_tutorials_tutorial_post_versions do |t|
+        create_table :phcdevworks_tutorials_command_items_versions do |t|
 
             t.string   :item_type, {:null=>false}
             t.integer  :item_id,   null: false
@@ -11,6 +11,6 @@ class CreatePhcdevworksTutorialsTutorialPostVersions < ActiveRecord::Migration[6
             t.datetime :created_at
 
         end
-        add_index :phcdevworks_tutorials_tutorial_post_versions, %i(item_type item_id), :name => 'tutorial_post_versions'
+        add_index :phcdevworks_tutorials_command_items_versions, %i(item_type item_id), :name => 'command_item_versions'
     end
 end

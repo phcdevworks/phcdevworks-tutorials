@@ -1,3 +1,4 @@
+# This migration comes from phcdevworks_tutorials (originally 20200320110553)
 class CreatePhcdevworksTutorialsCommandItems < ActiveRecord::Migration[6.0]
     def change
         create_table :phcdevworks_tutorials_command_items do |t|

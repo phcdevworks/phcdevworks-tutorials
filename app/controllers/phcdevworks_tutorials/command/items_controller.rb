@@ -9,47 +9,70 @@ module PhcdevworksTutorials
     before_action :set_paper_trail_whodunnit
     before_action :set_command_item, only: [:show, :edit, :update, :destroy]
 
-    # GET /command/items
+    # GET /post/items
+    # GET /post/items.json
     def index
-      @command_items = Command::Item.all
+      @command_items = command_post.items.all
     end
 
-    # GET /command/items/1
+    # GET /post/items/1
+    # GET /post/items/1.json
     def show
+      @command_item = command_post.items.find(params[:id])
+      @member_address_versions = PhcdevworksTutorials::CommandItemVersions.where(item_id: @command_item, item_type: 'PhcdevworksTutorials::Command::Item')
     end
 
-    # GET /command/items/new
+    # GET /post/items/new
     def new
-      @command_item = Command::Item.new
+      @command_item = command_post.items.build
     end
 
-    # GET /command/items/1/edit
+    # GET /post/items/1/edit
     def edit
+      @command_post = Command::Post.friendly.find(params[:post_id])
     end
 
-    # POST /command/items
+    # POST /post/items
+    # POST /post/items.json
     def create
-      @command_item = Command::Item.new(command_item_params)
-      if @command_item.save
-        redirect_to @command_item, notice: 'Item was successfully created.'
-      else
-        render :new
+      @command_item = command_post.items.create(command_item_params)
+      @command_item.user_id = current_user.id
+      @command_item.org_id = current_user.org_id
+      respond_to do |format|
+        if @command_item.save
+          format.html { redirect_to command_post_items_path, :flash => { :success => 'Command Item has been Added' }}
+          format.json { render :show, status: :created, location: @command_item }
+        else
+          format.html { render :new }
+          format.json { render json: @command_item.errors, status: :unprocessable_entity }
+        end
       end
     end
 
-    # PATCH/PUT /command/items/1
+    # PATCH/PUT /post/items/1
+    # PATCH/PUT /post/items/1.json
     def update
-      if @command_item.update(command_item_params)
-        redirect_to @command_item, notice: 'Item was successfully updated.'
-      else
-        render :edit
+      @command_post = Command::Post.friendly.find(params[:post_id])
+      respond_to do |format|
+        if @command_item.update(command_item_params)
+          format.html { redirect_to command_post_items_path, :flash => { :notice => 'Command Item has been Updated.' }}
+          format.json { render :show, status: :ok, location: @command_item }
+        else
+          format.html { render :edit }
+          format.json { render json: @command_item.errors, status: :unprocessable_entity }
+        end
       end
     end
 
-    # DELETE /command/items/1
+    # DELETE /post/items/1
+    # DELETE /post/items/1.json
     def destroy
+      @command_item = command_post.items.find(params[:id])
       @command_item.destroy
-      redirect_to command_items_url, notice: 'Item was successfully destroyed.'
+      respond_to do |format|
+        format.html { redirect_to command_post_items_path, :flash => { :error => 'Command Item has been Removed' }}
+        format.json { head :no_content }
+      end
     end
 
     private
@@ -57,6 +80,10 @@ module PhcdevworksTutorials
     # Common Callbacks
     def set_command_item
       @command_item = Command::Item.find(params[:id])
+    end
+
+    def command_post
+      @command_post = Command::Post.friendly.find(params[:post_id])
     end
 
     # Whitelist

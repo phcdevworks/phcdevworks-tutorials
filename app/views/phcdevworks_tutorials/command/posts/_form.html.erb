@@ -1,27 +1,41 @@
+<!-- Form - Command - Post -->
 <%= form_with(model: command_post, local: true) do |form| %>
-  <% if command_post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(command_post.errors.count, "error") %> prohibited this command_post from being saved:</h2>
 
-      <ul>
-        <% command_post.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-      </ul>
+    <!-- PHCNotifi Render Validation -->
+    <%= render "phcdevworks_notifications/bootstrap/validations", :object => @command_post %>
+    <!-- PHCNotifi Render Validation -->
+
+    <!-- Form Input Fields -->
+    <div class="form-group">
+        <%= form.label :post_title, "Command List Title" %>
+        <%= form.text_field :post_title, class: "form-control" %>
     </div>
-  <% end %>
+    
+    <div class="form-group">
+        <%= form.label :post_description, "Command List Description" %>
+        <%= form.text_area :post_description, class: "form-control" %>
+    </div>
+    
+    <div class="form-group">
+        <%= form.label :post_status, "Command List Status" %>
+        <%= form.select( :post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control"}) %>
+    </div>
+    
+    <div class="form-group">
+        <%= form.label :post_image, "Featured Image" %>
+        <%= form.file_field :post_image, class: "form-control" %>
+    </div>
 
-  <div class="field">
-    <%= form.label :post_title %>
-    <%= form.text_field :post_title %>
-  </div>
+    <% if form.object.post_image.attached? %>
+        <%= image_tag main_app.url_for(form.object.post_image), class: "img-responsive img-thumbnail" %>
+    <% end %>
+    <!-- Form Input Fields -->
 
-  <div class="field">
-    <%= form.label :post_description %>
-    <%= form.text_area :post_description %>
-  </div>
+    <!-- Form Submition Button -->
+    <div class="actions">
+        <%= form.submit class: "btn btn-primary" %>
+    </div>
+    <!-- For Submition Button -->
 
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>
+<!-- Form - Command - Item -->

@@ -1,31 +1,84 @@
-<p id="notice"><%= notice %></p>
+<!-- PHCTitleSEO Title Variables -->
+<% phc_title "Command Item Manager" %>
+<% phc_title_tagline "Command Item Index" %>
+<% phc_breadcrumb_one link_to "Command List Index", phcdevworks_tutorials.command_posts_path %>
+<% phc_breadcrumb_two "Command Items" %>
+<!-- PHCTitleSEO Title Variables -->
 
-<h1>Command Items</h1>
+<!-- Page Bradcrumbs -->
+<ol class="breadcrumb pull-right">
+	<li class="breadcrumb-item"><%= yield(:phc_breadcrumb_one) %></li>
+	<li class="breadcrumb-item active"><%= yield(:phc_breadcrumb_two) %></li>
+</ol>
+<!-- Page Bradcrumbs -->
 
-<table>
-  <thead>
-    <tr>
-      <th>Item name</th>
-      <th>Item description</th>
-      <th>Item copy command</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<!-- Page Header -->
+<h2 class="page-header"><%= yield(:phc_title) %></h2>
+<!-- Page Header -->
 
-  <tbody>
-    <% @command_items.each do |command_item| %>
-      <tr>
-        <td><%= command_item.item_name %></td>
-        <td><%= command_item.item_description %></td>
-        <td><%= command_item.item_copy_command %></td>
-        <td><%= link_to 'Show', command_item %></td>
-        <td><%= link_to 'Edit', edit_command_item_path(command_item) %></td>
-        <td><%= link_to 'Destroy', command_item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<!-- Page Content -->
+<div class="row">
+	<div class="col-lg-12">
 
-<br>
+		<!-- Panel -->
+		<div class="panel panel-inverse">
 
-<%= link_to 'New Command Item', new_command_item_path %>
+			<!-- Panel - Heading -->
+			<div class="panel-heading">
+				<h4 class="panel-title"><%= yield(:phc_title) %></h4>
+			</div>
+			<!-- Panel - Heading -->
+
+			<!-- Panel - Body -->
+			<div class="panel-body">
+
+				<!-- Index - Table -->
+				<div class="table-responsive">
+					<table class="table table-striped table-bordered">
+
+                        <thead>
+                            <tr>
+                                <th>Item Name</th>
+                                <th>Description</th>
+                                <th>Command</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            <% @command_items.each do |command_item| %>
+                                <tr>
+                                    <td><%= command_item.item_name %></td>
+                                    <td><%= command_item.item_description %></td>
+                                    <td><%= command_item.item_copy_command %></td>
+                                    <td>
+                                        <div class="btn-group d-flex" role="group">
+                                            <%= link_to "Update Item", edit_command_post_item_path(command_item.post, command_item), class: "btn btn-primary btn-xs" %>
+                                            <%= link_to "Remove Item", command_post_item_path(command_item.post, command_item), method: :delete, data: { confirm: "Are you sure? This Action Cannot be Reversed." }, class: "btn btn-danger btn-xs" %>
+                                        </div>
+                                    </td>
+                                </tr>
+                            <% end %>
+                           
+                        </tbody>
+
+					</table>
+				</div>
+				<!-- Index - Table -->
+
+				<!-- New Button -->
+                <%= link_to phcdevworks_tutorials.new_command_post_item_path, class: "btn btn-primary btn-sm" do %>
+                    <i class="fad fa-plus-circle"></i>
+                    Add a New Item to Command List
+				<% end %>
+				<!-- New Button -->
+
+			</div>
+			<!-- Panel - Body -->
+
+		</div>
+		<!-- Panel -->
+
+	</div>
+</div>
+<!-- Page Content -->

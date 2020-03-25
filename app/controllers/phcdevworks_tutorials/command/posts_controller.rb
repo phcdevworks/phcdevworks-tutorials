@@ -30,6 +30,8 @@ module PhcdevworksTutorials
     # POST /command/posts
     def create
       @command_post = Command::Post.new(command_post_params)
+      @command_post.user_id = current_user.id
+      @command_post.org_id = current_user.org_id
       if @command_post.save
         redirect_to @command_post, notice: 'Post was successfully created.'
       else

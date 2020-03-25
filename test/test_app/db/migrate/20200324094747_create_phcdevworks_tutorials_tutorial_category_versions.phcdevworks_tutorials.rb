@@ -1,3 +1,4 @@
+# This migration comes from phcdevworks_tutorials (originally 20191102093157)
 class CreatePhcdevworksTutorialsTutorialCategoryVersions < ActiveRecord::Migration[6.0]
     TEXT_BYTES = 1_073_741_823
     def change
