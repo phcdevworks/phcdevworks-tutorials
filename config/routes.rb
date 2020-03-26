@@ -18,6 +18,7 @@ PhcdevworksTutorials::Engine.routes.draw do
     # Frontend Routes
     namespace :blog do
         resources :tutorials, only: [:index, :show]
+        resources :commands, only: [:index, :show]
     end
 
     # API Routes
