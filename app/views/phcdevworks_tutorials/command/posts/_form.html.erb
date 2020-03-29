@@ -29,6 +29,16 @@
     <% if form.object.post_image.attached? %>
         <%= image_tag main_app.url_for(form.object.post_image), class: "img-responsive img-thumbnail" %>
     <% end %>
+
+    <div class="form-group">
+        <label>Select a Category</label>
+        <div class="panel-body">
+            <%= form.collection_check_boxes :category_ids, PhcdevworksTutorials::Tutorial::Category.order(:category_name), :id, :category_name do |post_category| %>
+                <%= post_category.check_box %>
+                <%= post_category.label %><br>
+            <% end %>
+        </div>
+    </div>
     <!-- Form Input Fields -->
 
     <!-- Form Submition Button -->

@@ -11,7 +11,7 @@ module PhcdevworksTutorials
     has_one_attached :post_image
 
     # Relationships
-    has_and_belongs_to_many :categories, class_name: "Command::Category", :join_table => "phcdevworks_tutorials_categories_posts", :dependent => :destroy
+    has_and_belongs_to_many :categories, class_name: "Tutorial::Category", :join_table => "phcdevworks_tutorials_categories_commands", :dependent => :destroy
     has_many :items, class_name: "Command::Item"
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
 

@@ -88,7 +88,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def command_item_params
-      params.require(:command_item).permit(:item_name, :item_description, :item_copy_command, :item_image, :slug, :user_id, :org_id)
+      params.require(:command_item).permit(:item_title, :item_description, :item_copy_command, :item_image, :slug, :user_id, :org_id)
     end
 
   end

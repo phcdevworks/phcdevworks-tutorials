@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_24_094756) do
+ActiveRecord::Schema.define(version: 2020_03_28_014723) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -72,6 +72,11 @@ ActiveRecord::Schema.define(version: 2020_03_24_094756) do
     t.index ["org_id"], name: "index_phcdevworks_accounts_users_on_org_id", unique: true
     t.index ["reset_password_token"], name: "index_phcdevworks_accounts_users_on_reset_password_token", unique: true
     t.index ["username"], name: "index_phcdevworks_accounts_users_on_username", unique: true
+  end
+
+  create_table "phcdevworks_tutorials_categories_commands", force: :cascade do |t|
+    t.integer "category_id"
+    t.integer "post_id"
   end
 
   create_table "phcdevworks_tutorials_categories_posts", force: :cascade do |t|
