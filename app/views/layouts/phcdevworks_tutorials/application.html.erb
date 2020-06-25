@@ -68,72 +68,68 @@
     <!-- JavaScript -->
 
     <!-- JavaScript CKEditor -->
-    <script>ClassicEditor
+	<script>ClassicEditor
         .create( document.querySelector( '.editor' ), {
-            toolbar: {
-                items: [
-                    'heading',
-                    '|',
-                    'fontBackgroundColor',
-                    'fontColor',
-                    'fontSize',
-                    'fontFamily',
-                    '|',
-                    'removeFormat',
-                    'subscript',
-                    'superscript',
-                    'bold',
-                    'italic',
-                    'link',
-                    '|',
-                    'todoList',
-                    'bulletedList',
-                    'numberedList',
-                    '|',
-                    'alignment',
-                    'indent',
-                    'outdent',
-                    '|',
-                    'blockQuote',
-                    'insertTable',
-                    'mediaEmbed',
-                    'undo',
-                    'redo',
-                    '|',
-                    'codeBlock',
-                    'code',
-                    'MathType',
-                    'ChemType',
-                    'comment'
-                ]
-            },
-            language: 'en',
-            image: {
-                toolbar: [
-                    'imageTextAlternative',
-                    'imageStyle:full',
-                    'imageStyle:side'
-                ]
-            },
-            table: {
-                contentToolbar: [
-                    'tableColumn',
-                    'tableRow',
-                    'mergeTableCells'
-                ]
-            },
-            licenseKey: '',
-            sidebar: {
-                container: document.querySelector( '.sidebar' )
-            },
+        	toolbar: {
+        		items: [
+        		    'heading',
+        			'|',
+        			'fontBackgroundColor',
+        			'fontColor',
+        			'horizontalLine',
+        			'fontSize',
+        			'fontFamily',
+        			'highlight',
+        			'|',
+        			'bold',
+        			'underline',
+        			'italic',
+        			'strikethrough',
+        			'link',
+        			'removeFormat',
+        			'|',
+        			'alignment',
+        			'indent',
+        			'outdent',
+        			'|',
+        			'blockQuote',
+        			'insertTable',
+        			'undo',
+        			'redo',
+        			'|',
+        			'subscript',
+        			'superscript',
+        			'|',
+        			'codeBlock',
+        			'code',
+        			'|',
+        			'MathType',
+        			'ChemType',
+        			'specialCharacters'
+        		]
+        	},
+        	language: 'en',
+        	table: {
+        		contentToolbar: [
+        			'tableColumn',
+        			'tableRow',
+        			'mergeTableCells',
+        			'tableCellProperties',
+        			'tableProperties'
+        		]
+        	},
+        	licenseKey: '',
         } )
         .then( editor => {
-            window.editor = editor;
+        	window.editor = editor;
         } )
         .catch( error => {
-            console.error( error );
+        	console.error( 'Oops, something gone wrong!' );
+        	console.error( 'Please, report the following error in the https://github.com/ckeditor/ckeditor5 with the build id and the error stack trace:' );
+        	console.warn( 'Build id: ulhl6ym1zxhr-qh8kt6relt0l' );
+        	console.error( error );
         } );
-    </script>
+	</script>
     <!-- JavaScript CKEditor -->
 
 </body>
