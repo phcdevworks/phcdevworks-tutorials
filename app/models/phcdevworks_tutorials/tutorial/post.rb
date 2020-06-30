@@ -11,7 +11,6 @@ module PhcdevworksTutorials
     has_one_attached :post_image
 
     # Relationships
-    # Relationships
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
     has_many :steps, class_name: "Tutorial::Step"
     has_and_belongs_to_many :categories, class_name: "PhcdevworksCoreModules::Modules::Category", :join_table => "phcdevworks_tutorials_categories_posts"
