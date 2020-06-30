@@ -33,7 +33,7 @@
     <div class="form-group">
         <label>Select a Category</label>
         <div class="panel-body">
-            <%= form.collection_check_boxes :category_ids, PhcdevworksTutorials::Tutorial::Category.order(:category_name), :id, :category_name do |post_category| %>
+            <%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Modules::Category.all, :id, :category_name do |post_category| %>
                 <%= post_category.check_box %>
                 <%= post_category.label %><br>
             <% end %>
