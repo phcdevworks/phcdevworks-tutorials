@@ -5,7 +5,6 @@ PhcdevworksTutorials::Engine.routes.draw do
         resources :posts, class_name: "Tutorial::Post" do
             resources :steps, class_name: "Tutorial::Step"
         end
-        resources :categories, class_name: "Tutorial::Category"
     end
 
     # Command Routes
@@ -29,7 +28,8 @@ PhcdevworksTutorials::Engine.routes.draw do
         end
     end
 
-    # Mount Routes
-    mount PhcdevworksAccounts::Engine, :at => "/"
+  # Mount Routes
+  mount PhcdevworksAccounts::Engine, :at => '/'
+  mount PhcdevworksCoreModules::Engine, :at => '/'
 
 end
