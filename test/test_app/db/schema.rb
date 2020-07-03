@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_28_014723) do
+ActiveRecord::Schema.define(version: 2020_07_03_104776) do
 
   create_table "action_mailbox_inbound_emails", force: :cascade do |t|
     t.integer "status", default: 0, null: false
@@ -74,6 +74,25 @@ ActiveRecord::Schema.define(version: 2020_03_28_014723) do
     t.index ["username"], name: "index_phcdevworks_accounts_users_on_username", unique: true
   end
 
+  create_table "phcdevworks_core_category_versions", force: :cascade do |t|
+    t.string "item_type", null: false
+    t.integer "item_id", null: false
+    t.string "event", null: false
+    t.string "whodunnit"
+    t.text "object", limit: 1073741823
+    t.datetime "created_at"
+    t.index ["item_type", "item_id"], name: "core_category_versions"
+  end
+
+  create_table "phcdevworks_core_modules_modules_categories", force: :cascade do |t|
+    t.string "category_name"
+    t.string "slug"
+    t.string "user_id"
+    t.string "org_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "phcdevworks_tutorials_categories_commands", force: :cascade do |t|
     t.integer "category_id"
     t.integer "post_id"
@@ -85,10 +104,9 @@ ActiveRecord::Schema.define(version: 2020_03_28_014723) do
   end
 
   create_table "phcdevworks_tutorials_command_items", force: :cascade do |t|
-    t.string "item_name"
+    t.string "item_title"
     t.text "item_description"
     t.string "item_copy_command"
-    t.string "item_image"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -112,7 +130,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_014723) do
     t.string "post_title"
     t.text "post_description"
     t.string "post_status"
-    t.string "post_image"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -130,25 +147,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_014723) do
     t.index ["item_type", "item_id"], name: "command_post_versions"
   end
 
-  create_table "phcdevworks_tutorials_tutorial_categories", force: :cascade do |t|
-    t.string "category_name"
-    t.string "slug"
-    t.string "user_id"
-    t.string "org_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "phcdevworks_tutorials_tutorial_category_versions", force: :cascade do |t|
-    t.string "item_type", null: false
-    t.integer "item_id", null: false
-    t.string "event", null: false
-    t.string "whodunnit"
-    t.text "object", limit: 1073741823
-    t.datetime "created_at"
-    t.index ["item_type", "item_id"], name: "tutorial_category_versions"
-  end
-
   create_table "phcdevworks_tutorials_tutorial_post_versions", force: :cascade do |t|
     t.string "item_type", null: false
     t.integer "item_id", null: false
@@ -163,7 +161,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_014723) do
     t.string "post_title"
     t.text "post_description"
     t.string "post_status"
-    t.string "post_image"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
@@ -185,7 +182,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_014723) do
     t.string "step_number"
     t.string "step_title"
     t.text "step_description"
-    t.string "step_image"
     t.string "slug"
     t.string "user_id"
     t.string "org_id"
