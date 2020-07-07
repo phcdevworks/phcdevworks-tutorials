@@ -33,12 +33,17 @@
     <div class="form-group">
         <label>Select a Category</label>
         <div class="panel-body">
-            <%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Modules::Category.all, :id, :category_name do |post_category| %>
+            <%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :category_name do |post_category| %>
                 <%= post_category.check_box %>
                 <%= post_category.label %><br>
             <% end %>
         </div>
     </div>
+
+	<div class="form-group">
+		<label>Attach SEO Data</label>
+		<%= collection_select(:tutorial_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("seo_title"), :id, :seo_title, {}, {class: "form-control"}) %>
+	</div>
     <!-- Form Input Fields -->
 
     <!-- Form Submition Button -->

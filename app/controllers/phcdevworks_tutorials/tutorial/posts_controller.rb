@@ -74,7 +74,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def tutorial_post_params
-      params.require(:tutorial_post).permit(:post_title, :post_description, :post_status, :post_image, :slug, :user_id, :org_id, category_ids: [])
+      params.require(:tutorial_post).permit(:post_title, :post_description, :post_status, :post_image, :slug, :optimization_id, :user_id, :org_id, category_ids: [])
     end
 
   end

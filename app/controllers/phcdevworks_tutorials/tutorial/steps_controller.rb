@@ -36,7 +36,7 @@ module PhcdevworksTutorials
       @tutorial_step.org_id = current_user.org_id
       respond_to do |format|
         if @tutorial_step.save
-          format.html { redirect_to tutorial_post_steps_url, :flash => { :success => 'Member Listing has been Added' }}
+          format.html { redirect_to tutorial_post_steps_url, :flash => { :success => 'Tutorial Step has been Added' }}
           format.json { render :show, status: :created, location: @tutorial_step }
         else
           format.html { render :new }
@@ -50,7 +50,7 @@ module PhcdevworksTutorials
       @tutorial_post = Tutorial::Post.friendly.find(params[:post_id])
       respond_to do |format|
         if @tutorial_step.update(tutorial_step_params)
-          format.html { redirect_to tutorial_post_steps_url, :flash => { :notice => 'Member Listing has been Updated.' }}
+          format.html { redirect_to tutorial_post_steps_url, :flash => { :notice => 'Tutorial Step has been Updated.' }}
           format.json { render :show, status: :ok, location: @tutorial_step }
         else
           format.html { render :edit }
@@ -64,7 +64,7 @@ module PhcdevworksTutorials
       @tutorial_step = tutorial_post.steps.find(params[:id])
       @tutorial_step.destroy
       respond_to do |format|
-        format.html { redirect_to tutorial_post_steps_url, :flash => { :error => 'Member Listing has been Removed' }}
+        format.html { redirect_to tutorial_post_steps_url, :flash => { :error => 'Tutorial Step has been Removed' }}
         format.json { head :no_content }
       end
     end
@@ -82,7 +82,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def tutorial_step_params
-      params.require(:tutorial_step).permit(:step_number, :step_title, :step_description, :step_copy_instruction, :step_image, :post_id, :slug, :user_id, :org_id)
+      params.require(:tutorial_step).permit(:step_number, :step_title, :step_description, :step_copy_instruction, :step_image, :optimization_id, :post_id, :slug, :user_id, :org_id)
     end
 
   end

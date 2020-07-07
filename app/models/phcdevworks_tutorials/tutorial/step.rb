@@ -8,9 +8,11 @@ module PhcdevworksTutorials
     has_one_attached :step_image
 
     # Relationships
-    belongs_to :post, class_name: "Tutorial::Post"
-    has_many :categories, class_name: "Tutorial::Category", :through => :post
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
+    belongs_to :post, class_name: "Tutorial::Post"
+    belongs_to :optimization, class_name: "PhcdevworksCoreModules::Marketing::Optimization", optional: true
+    has_many :categories, class_name: "Tutorial::Category", :through => :post
+
 
   end
 end

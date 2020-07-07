@@ -32,26 +32,37 @@ module PhcdevworksTutorials
       @command_post = Command::Post.new(command_post_params)
       @command_post.user_id = current_user.id
       @command_post.org_id = current_user.org_id
-      if @command_post.save
-        redirect_to @command_post, notice: 'Post was successfully created.'
-      else
-        render :new
+      respond_to do |format|
+        if @command_post.save
+          format.html { redirect_to command_posts_path, :flash => { :success => 'Command Post has been Added.' }}
+          format.json { render :show, status: :created, location: @command_post }
+        else
+          format.html { render :new }
+          format.json { render json: @command_post.errors, status: :unprocessable_entity }
+        end
       end
     end
     
     # PATCH/PUT /command/posts/1
     def update
-      if @command_post.update(command_post_params)
-        redirect_to @command_post, notice: 'Post was successfully updated.'
-      else
-        render :edit
+      respond_to do |format|
+        if @command_post.update(command_post_params)
+          format.html { redirect_to command_posts_path, :flash => { :notice => 'Command Post has been Updated.' }}
+          format.json { render :show, status: :ok, location: @command_post }
+        else
+          format.html { render :edit }
+          format.json { render json: @command_post.errors, status: :unprocessable_entity }
+        end
       end
     end
     
     # DELETE /command/posts/1
     def destroy
       @command_post.destroy
-      redirect_to command_posts_url, notice: 'Post was successfully destroyed.'
+        respond_to do |format|
+          format.html { redirect_to command_posts_path, :flash => { :error => 'Command Post has been Removed.' }}
+          format.json { head :no_content }
+      end
     end
     
     private
@@ -63,7 +74,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def command_post_params
-      params.require(:command_post).permit(:post_title, :post_description, :post_status, :post_image, :slug, :user_id, :org_id)
+      params.require(:command_post).permit(:post_title, :post_description, :post_status, :post_image, :slug, :optimization_id, :user_id, :org_id, category_ids: [])
     end
 
   end

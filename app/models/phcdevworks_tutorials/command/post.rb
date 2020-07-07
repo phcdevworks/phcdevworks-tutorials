@@ -12,7 +12,8 @@ module PhcdevworksTutorials
 
     # Relationships
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
-    has_and_belongs_to_many :categories, class_name: "PhcdevworksCoreModules::Modules::Category", :join_table => "phcdevworks_tutorials_categories_commands"
+    belongs_to :optimization, class_name: "PhcdevworksCoreModules::Marketing::Optimization", optional: true
+    has_and_belongs_to_many :categories, class_name: "PhcdevworksCoreModules::Post::Category", :join_table => "phcdevworks_tutorials_categories_commands"
     has_many :items, class_name: "Command::Item"
 
     # Form Fields Validation

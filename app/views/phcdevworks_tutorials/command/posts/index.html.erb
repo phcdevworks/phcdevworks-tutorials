@@ -48,7 +48,7 @@
                             <% @command_posts.each do |command_post| %>
                             <tr>
                                 <td><%= command_post.post_title %></td>
-                                <td><%= command_post.post_description %></td>
+    						    <td><%= truncate(command_post.post_description, :length => 80, :escape => false) %></td>
                                 <td>
                                     <div class="btn-group d-flex" role="group">
                                         <%= link_to "List Details", command_post, class: "btn btn-purple btn-xs" %>

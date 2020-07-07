@@ -12,7 +12,7 @@ module PhcdevworksTutorials
     # GET /post/items
     # GET /post/items.json
     def index
-      @command_items = command_post.items.all
+      @command_items = command_post.items.order('item_title ASC')
     end
 
     # GET /post/items/1
@@ -40,7 +40,7 @@ module PhcdevworksTutorials
       @command_item.org_id = current_user.org_id
       respond_to do |format|
         if @command_item.save
-          format.html { redirect_to command_post_items_path, :flash => { :success => 'Command Item has been Added' }}
+          format.html { redirect_to command_post_items_url, :flash => { :success => 'Command Item has been Added' }}
           format.json { render :show, status: :created, location: @command_item }
         else
           format.html { render :new }
@@ -55,7 +55,7 @@ module PhcdevworksTutorials
       @command_post = Command::Post.friendly.find(params[:post_id])
       respond_to do |format|
         if @command_item.update(command_item_params)
-          format.html { redirect_to command_post_items_path, :flash => { :notice => 'Command Item has been Updated.' }}
+          format.html { redirect_to command_post_items_url, :flash => { :notice => 'Command Item has been Updated.' }}
           format.json { render :show, status: :ok, location: @command_item }
         else
           format.html { render :edit }
@@ -70,7 +70,7 @@ module PhcdevworksTutorials
       @command_item = command_post.items.find(params[:id])
       @command_item.destroy
       respond_to do |format|
-        format.html { redirect_to command_post_items_path, :flash => { :error => 'Command Item has been Removed' }}
+        format.html { redirect_to command_post_items_url, :flash => { :error => 'Command Item has been Removed' }}
         format.json { head :no_content }
       end
     end
@@ -88,7 +88,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def command_item_params
-      params.require(:command_item).permit(:item_title, :item_description, :item_copy_command, :item_image, :slug, :user_id, :org_id)
+      params.require(:command_item).permit(:item_title, :item_description, :item_copy_command, :item_image, :slug, :optimization_id, :user_id, :org_id)
     end
 
   end

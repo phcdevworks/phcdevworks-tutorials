@@ -31,7 +31,11 @@
         <%= form.label :step_image, "Step Image" %>
         <%= form.file_field :step_image, class: "form-control" %>
     </div>
-  
+
+	<div class="form-group">
+		<label>Attach SEO Data</label>
+		<%= collection_select(:tutorial_step, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("seo_title"), :id, :seo_title, {}, {class: "form-control"}) %>
+	</div>
     <!-- Form Input Fields -->
 
     <!-- Form Submition Button -->
