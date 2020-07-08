@@ -14,7 +14,7 @@ module PhcdevworksTutorials
     belongs_to :user, class_name: "PhcdevworksAccounts::User"
     belongs_to :optimization, class_name: "PhcdevworksCoreModules::Marketing::Optimization", optional: true
     has_and_belongs_to_many :categories, class_name: "PhcdevworksCoreModules::Post::Category", :join_table => "phcdevworks_tutorials_categories_commands"
-    has_many :items, class_name: "Command::Item"
+    has_many :items, class_name: "Command::Item", :dependent => :destroy
 
     # Form Fields Validation
     validates :post_title,
