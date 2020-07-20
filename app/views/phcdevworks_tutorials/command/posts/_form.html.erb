@@ -7,33 +7,33 @@
 
     <!-- Form Input Fields -->
     <div class="form-group">
-        <%= form.label :post_title, "Command List Title" %>
-        <%= form.text_field :post_title, class: "form-control" %>
+        <%= form.label :command_post_title, "Command List Title" %>
+        <%= form.text_field :command_post_title, class: "form-control" %>
     </div>
     
     <div class="form-group">
-        <%= form.label :post_description, "Command List Description" %>
-        <%= form.text_area :post_description, class: "form-control editor" %>
+        <%= form.label :command_post_text, "Command List Description" %>
+        <%= form.text_area :command_post_text, class: "form-control editor" %>
     </div>
     
     <div class="form-group">
-        <%= form.label :post_status, "Command List Status" %>
-        <%= form.select( :post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control"}) %>
+        <%= form.label :command_post_status, "Command List Status" %>
+        <%= form.select( :command_post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control"}) %>
     </div>
     
     <div class="form-group">
-        <%= form.label :post_image, "Featured Image" %>
-        <%= form.file_field :post_image, class: "form-control" %>
+        <%= form.label :command_post_image, "Featured Image" %>
+        <%= form.file_field :command_post_image, class: "form-control" %>
     </div>
 
-    <% if form.object.post_image.attached? %>
-        <%= image_tag main_app.url_for(form.object.post_image), class: "img-responsive img-thumbnail" %>
+    <% if form.object.command_post_image.attached? %>
+        <%= image_tag main_app.url_for(form.object.command_post_image), class: "img-responsive img-thumbnail" %>
     <% end %>
 
     <div class="form-group">
         <label>Select a Category</label>
         <div class="panel-body">
-            <%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :category_name do |post_category| %>
+            <%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :post_category_name do |post_category| %>
                 <%= post_category.check_box %>
                 <%= post_category.label %><br>
             <% end %>
@@ -42,7 +42,7 @@
 
 	<div class="form-group">
 		<label>Attach SEO Data</label>
-		<%= collection_select(:command_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("seo_title"), :id, :seo_title, {}, {class: "form-control"}) %>
+		<%= collection_select(:command_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {}, {class: "form-control"}) %>
 	</div>
     <!-- Form Input Fields -->
 

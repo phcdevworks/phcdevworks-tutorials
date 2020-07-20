@@ -5,7 +5,7 @@ module PhcdevworksTutorials
     has_paper_trail :class_name => 'PhcdevworksTutorials::CommandItemVersions'
 
     # Image Upload
-    has_one_attached :item_image
+    has_one_attached :command_item_image
 
     # Relationships
     belongs_to :user, class_name: "PhcdevworksAccounts::User"

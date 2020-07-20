@@ -44,10 +44,10 @@
                         </thead>
 
                         <tbody>
-                            <% @command_post.items.order('item_title ASC').each do |command_item| %>
+                            <% @command_post.items.order('command_item_title ASC').each do |command_item| %>
                                 <tr>
-                                    <td><%= command_item.item_title %></td>
-                                    <td><%= command_item.item_description %></td>
+                                    <td><%= command_item.command_item_title %></td>
+                                    <td><%= command_item.command_item_text %></td>
                                 </tr>
     						<% end %>
 						</tbody>

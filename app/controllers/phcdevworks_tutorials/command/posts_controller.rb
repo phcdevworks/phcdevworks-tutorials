@@ -74,7 +74,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def command_post_params
-      params.require(:command_post).permit(:post_title, :post_description, :post_status, :post_image, :slug, :optimization_id, :user_id, :org_id, category_ids: [])
+      params.require(:command_post).permit(:command_post_title, :command_post_text, :command_post_status, :command_post_image, :slug, :optimization_id, :user_id, :org_id, category_ids: [])
     end
 
   end

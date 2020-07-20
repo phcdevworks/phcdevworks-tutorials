@@ -7,33 +7,33 @@
 
     <!-- Form Input Fields -->
     <div class="form-group">
-        <%= form.label :post_title, "Tutorial Title" %>
-        <%= form.text_field :post_title, placeholder: "Tutorial Title", class: "form-control" %>
+        <%= form.label :tutorial_post_title, "Tutorial Title" %>
+        <%= form.text_field :tutorial_post_title, placeholder: "Tutorial Title", class: "form-control" %>
     </div>
 
     <div class="form-group">
-        <%= form.label :post_description, "Tutorial Description" %>
-        <%= form.text_area :post_description, class: "form-control editor" %>
+        <%= form.label :tutorial_post_text, "Tutorial Description" %>
+        <%= form.text_area :tutorial_post_text, class: "form-control editor" %>
         <div id="word-count" class="mt-3"></div>
     </div>
 
     <div class="form-group">
-        <%= form.label :post_status, "Tutorial Status" %>
-        <%= form.select( :post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control"}) %>
+        <%= form.label :tutorial_post_status, "Tutorial Status" %>
+        <%= form.select( :tutorial_post_status, [["Draft","draft"],["Published","published"],["Review","review"]], {}, {class: "form-control"}) %>
     </div>
 
     <div class="form-group">
-        <%= form.label :post_image, "Featured Image" %>
-        <%= form.file_field :post_image, class: "form-control" %>
+        <%= form.label :tutorial_post_image, "Featured Image" %>
+        <%= form.file_field :tutorial_post_image, class: "form-control" %>
     </div>
-    <% if form.object.post_image.attached? %>
-        <%= image_tag main_app.url_for(form.object.post_image), class: "img-responsive img-thumbnail" %>
+    <% if form.object.tutorial_post_image.attached? %>
+        <%= image_tag main_app.url_for(form.object.tutorial_post_image), class: "img-responsive img-thumbnail" %>
     <% end %>
 
     <div class="form-group">
         <label>Select a Category</label>
         <div class="panel-body">
-            <%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :category_name do |post_category| %>
+            <%= form.collection_check_boxes :category_ids, PhcdevworksCoreModules::Post::Category.all, :id, :post_category_name do |post_category| %>
                 <%= post_category.check_box %>
                 <%= post_category.label %><br>
             <% end %>
@@ -42,7 +42,7 @@
 
 	<div class="form-group">
 		<label>Attach SEO Data</label>
-		<%= collection_select(:tutorial_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("seo_title"), :id, :seo_title, {}, {class: "form-control"}) %>
+		<%= collection_select(:tutorial_post, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {}, {class: "form-control"}) %>
 	</div>
     <!-- Form Input Fields -->
 

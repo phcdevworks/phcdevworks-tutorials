@@ -11,7 +11,7 @@ module PhcdevworksTutorials
 
     # GET /tutorial/steps
     def index
-      @tutorial_steps = tutorial_post.steps.order("step_number")
+      @tutorial_steps = tutorial_post.steps.order("tutorial_step_number")
     end
 
     # GET /tutorial/steps/1
@@ -82,7 +82,7 @@ module PhcdevworksTutorials
 
     # Whitelist
     def tutorial_step_params
-      params.require(:tutorial_step).permit(:step_number, :step_title, :step_description, :step_copy_instruction, :step_image, :optimization_id, :post_id, :slug, :user_id, :org_id)
+      params.require(:tutorial_step).permit(:tutorial_step_number, :tutorial_step_title, :tutorial_step_text, :tutorial_step_copy_instruction, :tutorial_step_image, :optimization_id, :post_id, :slug, :user_id, :org_id)
     end
 
   end

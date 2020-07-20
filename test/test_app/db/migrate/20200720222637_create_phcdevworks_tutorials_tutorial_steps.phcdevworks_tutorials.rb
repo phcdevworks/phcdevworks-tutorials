@@ -1,3 +1,4 @@
+# This migration comes from phcdevworks_tutorials (originally 20191017235421)
 class CreatePhcdevworksTutorialsTutorialSteps < ActiveRecord::Migration[6.0]
   def change
     create_table :phcdevworks_tutorials_tutorial_steps do |t|
