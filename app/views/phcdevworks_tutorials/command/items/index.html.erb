@@ -47,8 +47,8 @@
                         <tbody>
                             <% @command_items.each do |command_item| %>
                                 <tr>
-                                    <td><%= command_item.item_title %></td>
-    						        <td><%= truncate(command_item.item_description, :length => 80, :escape => false) %></td>
+                                    <td><%= command_item.command_item_title %></td>
+    						        <td><%= truncate(command_item.command_item_text, :length => 80, :escape => false) %></td>
                                     <td>
                                         <div class="btn-group d-flex" role="group">
                                             <%= link_to "Update Item", edit_command_post_item_path(command_item.post, command_item), class: "btn btn-primary btn-xs" %>

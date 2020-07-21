@@ -12,7 +12,7 @@ module PhcdevworksTutorials
     # GET /post/items
     # GET /post/items.json
     def index
-      @command_items = command_post.items.order('item_title ASC')
+      @command_items = command_post.items.order('command_item_title ASC')
     end
 
     # GET /post/items/1

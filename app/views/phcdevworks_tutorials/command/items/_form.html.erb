@@ -29,11 +29,7 @@
     <% if form.object.command_item_image.attached? %>
         <%= image_tag main_app.url_for(form.object.command_item_image), class: "img-responsive img-thumbnail" %>
     <% end %>
-    
-	<div class="form-group">
-		<label>Attach SEO Data</label>
-		<%= collection_select(:command_item, :optimization_id, PhcdevworksCoreModules::Marketing::Optimization.order("marketing_optimization_page_title"), :id, :marketing_optimization_page_title, {}, {class: "form-control"}) %>
-	</div>
+
     <!-- Form Input Fields -->
     
     <!-- Form Submition Button -->
