@@ -1,4 +1,4 @@
-class CreatePhcdevworksTutorialsCommandItemsVersions < ActiveRecord::Migration[6.0]
+class CreatePhcdevworksTutorialsCommandItemVersions < ActiveRecord::Migration[6.0]
   TEXT_BYTES = 1_073_741_823
   def change
     create_table :phcdevworks_tutorials_command_items_versions do |t|
