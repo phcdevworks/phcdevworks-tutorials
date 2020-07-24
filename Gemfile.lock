@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    phcdevworks_tutorials (10.0.0)
+    phcdevworks_tutorials (11.0.0)
       aws-sdk-s3 (~> 1.74)
       friendly_id (~> 5.3)
       google-cloud-storage (~> 1.26)
@@ -161,7 +161,7 @@ GEM
       signet (~> 0.14)
     gravtastic (3.2.6)
     httpclient (2.8.3)
-    i18n (1.8.4)
+    i18n (1.8.5)
       concurrent-ruby (~> 1.0)
     inline_svg (1.7.1)
       activesupport (>= 3.0)
