@@ -1,8 +1,8 @@
 # This migration comes from phcdevworks_tutorials (originally 20200321122525)
-class CreatePhcdevworksTutorialsCommandItemsVersions < ActiveRecord::Migration[6.0]
+class CreatePhcdevworksTutorialsCommandItemVersions < ActiveRecord::Migration[6.0]
   TEXT_BYTES = 1_073_741_823
   def change
-    create_table :phcdevworks_tutorials_command_items_versions do |t|
+    create_table :phcdevworks_tutorials_command_item_versions do |t|
 
       t.string   :item_type, {:null=>false}
       t.integer  :item_id,   null: false
@@ -13,7 +13,7 @@ class CreatePhcdevworksTutorialsCommandItemsVersions < ActiveRecord::Migration[6
 
     end
 
-    add_index :phcdevworks_tutorials_command_items_versions, %i(item_type item_id), :name => 'command_item_versions'
+    add_index :phcdevworks_tutorials_command_item_versions, %i(item_type item_id), :name => 'command_item_versions'
 
   end
 end
