@@ -8,7 +8,7 @@ module PhcdevworksTutorials
 
     # INDEX
     def index
-      @phcdevworks_commands_index = Command::Post.where(post_status: "published").order("created_at DESC")
+      @phcdevworks_commands_index = Command::Post.where(command_post_status: "published").order("created_at DESC")
       @phcdevworks_commands_photo_randomizer = Command::Post.order('RANDOM()').limit(1)
     end
 

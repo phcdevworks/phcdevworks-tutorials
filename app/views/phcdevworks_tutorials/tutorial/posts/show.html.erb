@@ -47,9 +47,9 @@
                         <tbody>
                             <% @tutorial_post.steps.each do |tutorial_step| %>
                                 <tr>
-                                    <td><%= tutorial_step.step_number %></td>
-                                    <td><%= tutorial_step.step_title %></td>
-                                    <td><%= tutorial_step.step_description %></td>
+                                    <td><%= tutorial_step.tutorial_step_number %></td>
+                                    <td><%= tutorial_step.tutorial_step_title %></td>
+                                    <td><%= tutorial_step.tutorial_step_text %></td>
                                 </tr>
     						<% end %>
 						</tbody>
