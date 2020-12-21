@@ -43,6 +43,9 @@ Gem::Specification.new do |spec|
   spec.add_dependency "wicked", "~> 1.3"
   spec.add_dependency "friendly_id", "~> 5.4"
   spec.add_dependency "gravtastic", "~> 3.2"
+  
+  # Mailer Dependencies
+  spec.add_dependency "mail_form", "~> 1.8"
 
   # Images & Service Support Dependencies
   spec.add_dependency "aws-sdk-s3", "~> 1.85"
